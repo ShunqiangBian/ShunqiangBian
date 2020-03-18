@@ -242,7 +242,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-18 17:14:19'>2019-02-02 23:59</time>
+        创建时间:<time class="date" title='更新时间: 2020-03-18 18:26:30'>2019-02-02 23:59</time>
         
     </div>
     <div class="article-meta">
@@ -275,7 +275,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#softmax"><span class="toc-text"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#公式-y-i-frac-e-z-i-sum-j-e-z-j"><span class="toc-text"><a href="#&#x516C;&#x5F0F;-y-i-frac-e-z-i-sum-j-e-z-j" class="headerlink" title="&#x516C;&#x5F0F; $y_{i}=\frac{e^{z_{i}}}{\sum_{j}^{}{e^{z_{j}}}}$"></a>&#x516C;&#x5F0F; $y_{i}=\frac{e^{z_{i}}}{\sum_{j}^{}{e^{z_{j}}}}$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L-i-log-frac-e-y-i-sum-j-e-y-j"><span class="toc-text"><a href="#L-i-log-frac-e-y-i-sum-j-e-y-j" class="headerlink" title="$L_{i} = -\log(\frac{e^{y_{i}}}{\sum_{j}e^{y_j}})$"></a>$L_{i} = -\log(\frac{e^{y_{i}}}{\sum_{j}e^{y_j}})$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-softmax"><span class="toc-text"><a href="#Why-softmax" class="headerlink" title="Why softmax"></a>Why softmax</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sigmoid"><span class="toc-text"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么需要激活函数"><span class="toc-text"><a href="#&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;" class="headerlink" title="&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;"></a>&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度消失和梯度爆炸"><span class="toc-text"><a href="#&#x68AF;&#x5EA6;&#x6D88;&#x5931;&#x548C;&#x68AF;&#x5EA6;&#x7206;&#x70B8;" class="headerlink" title="&#x68AF;&#x5EA6;&#x6D88;&#x5931;&#x548C;&#x68AF;&#x5EA6;&#x7206;&#x70B8;"></a>&#x68AF;&#x5EA6;&#x6D88;&#x5931;&#x548C;&#x68AF;&#x5EA6;&#x7206;&#x70B8;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#softmax"><span class="toc-text"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#公式-y-i-frac-e-z-i-sum-j-e-z-j"><span class="toc-text"><a href="#&#x516C;&#x5F0F;-y-i-frac-e-z-i-sum-j-e-z-j" class="headerlink" title="&#x516C;&#x5F0F; $y_{i}=\frac{e^{z_{i}}}{\sum_{j}^{}{e^{z_{j}}}}$"></a>&#x516C;&#x5F0F; $y_{i}=\frac{e^{z_{i}}}{\sum_{j}^{}{e^{z_{j}}}}$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L-i-log-frac-e-z-i-sum-j-e-z-j"><span class="toc-text"><a href="#L-i-log-frac-e-z-i-sum-j-e-z-j" class="headerlink" title="$L_{i} = -\log(\frac{e^{z_{i}}}{\sum_{j}e^{z_j}})$"></a>$L_{i} = -\log(\frac{e^{z_{i}}}{\sum_{j}e^{z_j}})$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-softmax"><span class="toc-text"><a href="#Why-softmax" class="headerlink" title="Why softmax"></a>Why softmax</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sigmoid"><span class="toc-text"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -291,14 +291,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h1><p>softmax用于多分类过程中，它将多个神经元的输出，映射到（0,1）区间内，可以看成概率来理解，从而来进行多分类。<br>更形象的如下图：<br><img src="https://shun-qiang.github.io/img/softmax.jpg" alt=""></p>
+        <h1 id="为什么需要激活函数"><a href="#为什么需要激活函数" class="headerlink" title="为什么需要激活函数"></a>为什么需要激活函数</h1><p>从数学上看，神经网络是一个多层复合函数。激活函数在很早以前就被引入，其作用是保证神经网络的非线性，因为线性函数无论怎样复合结果还是线性的。为保证非线性，激活函数必须为非线性函数，但仅仅具有非线性是不够的。神经网络在本质上是一个复合函数，这会让我们思考一个问题：这个函数的建模能力有多强？即它能模拟什么样的目标函数？已经证明，只要激活函数选择得当，神经元个数足够多，使用3层即包含一个隐含层的神经网络就可以实现对任何一个从输入向量到输出向量的连续映射函数的逼近，这个结论称为万能逼近（universal approximation）定理。</p>
+<h2 id="梯度消失和梯度爆炸"><a href="#梯度消失和梯度爆炸" class="headerlink" title="梯度消失和梯度爆炸"></a>梯度消失和梯度爆炸</h2><p>反向传播算法计算误差项时每一层都要乘以本层激活函数的导数。如果激活函数导数的绝对值值小于1，多次连乘之后误差项很快会衰减到接近于0，参数的梯度值由误差项计算得到，从而导致前面层的权重梯度接近于0，参数没有得到有效更新，这称为梯度消失问题。与之相反的是梯度爆炸问题，如果激活函数导数的绝对大于1，多次乘积之后权重值会趋向于非常大的数，这称为梯度爆炸。</p>
+<h1 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h1><p>softmax用于多分类过程中，它将多个神经元的输出，映射到（0,1）区间内，可以看成概率来理解，从而来进行多分类。<br>更形象的如下图：<br><img src="https://shun-qiang.github.io/img/softmax.jpg" alt=""></p>
 <h2 id="公式-y-i-frac-e-z-i-sum-j-e-z-j"><a href="#公式-y-i-frac-e-z-i-sum-j-e-z-j" class="headerlink" title="公式 $y_{i}=\frac{e^{z_{i}}}{\sum_{j}^{}{e^{z_{j}}}}$"></a>公式 $y_{i}=\frac{e^{z_{i}}}{\sum_{j}^{}{e^{z_{j}}}}$</h2><p>在神经网络的计算当中，我们经常需要计算按照神经网络的正向传播计算的分数S1，和按照正确标注计算的分数S2，之间的差距，计算Loss，才能应用反向传播。<br>Loss定义为交叉熵, NLL： </p>
-<h2 id="L-i-log-frac-e-y-i-sum-j-e-y-j"><a href="#L-i-log-frac-e-y-i-sum-j-e-y-j" class="headerlink" title="$L_{i} = -\log(\frac{e^{y_{i}}}{\sum_{j}e^{y_j}})$"></a>$L_{i} = -\log(\frac{e^{y_{i}}}{\sum_{j}e^{y_j}})$</h2><p>输出层我们一般选用softmax作为激活函数</p>
+<h2 id="L-i-log-frac-e-z-i-sum-j-e-z-j"><a href="#L-i-log-frac-e-z-i-sum-j-e-z-j" class="headerlink" title="$L_{i} = -\log(\frac{e^{z_{i}}}{\sum_{j}e^{z_j}})$"></a>$L_{i} = -\log(\frac{e^{z_{i}}}{\sum_{j}e^{z_j}})$</h2><p>输出层我们一般选用softmax作为激活函数</p>
 <h3 id="Why-softmax"><a href="#Why-softmax" class="headerlink" title="Why softmax"></a>Why softmax</h3><ol>
-<li>计算上非常方便</li>
+<li>计算求导上非常方便</li>
 <li>softmax函数值表示数据正确分类的值，它占的比重越大，这个样本的loss也就越小</li>
 </ol>
-<h1 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h1>
+<h1 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h1><p>Sigmoid 是一个可微的有界函数，在各点均有非负的导数。当 x→∞ 时，S(x)→1；当 x→−∞ 时，S(x)→0。常用于二元分类（Binary Classification）问题，以及神经网络的激活函数（Activation Function）（把线性的输入转换为非线性的输出）<br>其实logistic函数也就是经常说的sigmoid函数，它的几何形状也就是一条sigmoid曲线（S型曲线）。<br>在二元分类的情况下，Softmax 退化为了 Sigmoid。<br>$$<br>\sigma(x) = \frac{1}{(1+e^{-x})}<br>$$<br>sigmoid函数图像：<br><img src="https://shun-qiang.github.io/img/sigmoid.jpg" alt=""></p>
+<p>常用的激活函数以及相应的导数：<br><img src="https://shun-qiang.github.io/img/common-activate-function.jpg" alt=""></p>
+
       
        <hr><span style="font-style: italic;color: gray;"> 请多多指教。 </span>
     </div>
@@ -315,7 +319,7 @@
     
     <p><span class="copy-title">本文作者:</span><a  title="顺强">顺强</a></p>
     <p><span class="copy-title">发布时间:</span>2019-02-02, 23:59:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-18, 17:14:19</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-18, 18:26:30</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/activate-function/" title="激活函数">http://shun-qiang.github.io/activate-function/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
