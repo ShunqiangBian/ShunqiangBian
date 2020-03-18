@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>寻梦乌托邦</title>
+  <title>LOSS函数 | 寻梦乌托邦</title>
   <meta name="keywords" content="">
-  <meta name="description" content="寻梦乌托邦">
+  <meta name="description" content="LOSS函数 | 寻梦乌托邦">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="正直 勇敢 追梦的人">
 <meta property="og:type" content="website">
@@ -51,7 +51,7 @@
 </div>
 
 <body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav mobile">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar-sun.jpg" />
@@ -222,12 +222,60 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-loss-function" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#学海无涯"><span class="toc-text"><a href="#&#x5B66;&#x6D77;&#x65E0;&#x6DAF;" class="headerlink" title="&#x5B66;&#x6D77;&#x65E0;&#x6DAF;"></a>&#x5B66;&#x6D77;&#x65E0;&#x6DAF;</span></a></li></ol>
+        <h1 class="article-title">LOSS函数</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="CNN">CNN</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-03-18 17:06:31'>2019-03-05 23:59</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#交叉熵（CE）"><span class="toc-text"><a href="#&#x4EA4;&#x53C9;&#x71B5;&#xFF08;CE&#xFF09;" class="headerlink" title="&#x4EA4;&#x53C9;&#x71B5;&#xFF08;CE&#xFF09;"></a>&#x4EA4;&#x53C9;&#x71B5;&#xFF08;CE&#xFF09;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#H-p-q-sum-i-p-i-lnq-i"><span class="toc-text"><a href="#H-p-q-sum-i-p-i-lnq-i" class="headerlink" title="$H(p,q)=-\sum_{i}^{}{p_{i}lnq_{i}}$"></a>$H(p,q)=-\sum_{i}^{}{p_{i}lnq_{i}}$</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Negative-log-loss-NLL"><span class="toc-text"><a href="#Negative-log-loss-NLL" class="headerlink" title="Negative log loss (NLL)"></a>Negative log loss (NLL)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#L-i-log-frac-e-y-i-sum-j-e-y-j"><span class="toc-text"><a href="#L-i-log-frac-e-y-i-sum-j-e-y-j" class="headerlink" title="$L_{i} = -\log(\frac{e^{y_{i}}}{\sum_{j}e^{y_j}})$"></a>$L_{i} = -\log(\frac{e^{y_{i}}}{\sum_{j}e^{y_j}})$</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -240,14 +288,37 @@
     }
 </style>
 </div>
-            <h3 id="学海无涯"><a href="#学海无涯" class="headerlink" title="学海无涯"></a>学海无涯</h3>
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="交叉熵（CE）"><a href="#交叉熵（CE）" class="headerlink" title="交叉熵（CE）"></a>交叉熵（CE）</h1><h2 id="H-p-q-sum-i-p-i-lnq-i"><a href="#H-p-q-sum-i-p-i-lnq-i" class="headerlink" title="$H(p,q)=-\sum_{i}^{}{p_{i}lnq_{i}}$"></a>$H(p,q)=-\sum_{i}^{}{p_{i}lnq_{i}}$</h2><p>当p与q的分布一致时, $H(p,q)$ 有最小值</p>
+<h1 id="Negative-log-loss-NLL"><a href="#Negative-log-loss-NLL" class="headerlink" title="Negative log loss (NLL)"></a>Negative log loss (NLL)</h1><h2 id="L-i-log-frac-e-y-i-sum-j-e-y-j"><a href="#L-i-log-frac-e-y-i-sum-j-e-y-j" class="headerlink" title="$L_{i} = -\log(\frac{e^{y_{i}}}{\sum_{j}e^{y_j}})$"></a>$L_{i} = -\log(\frac{e^{y_{i}}}{\sum_{j}e^{y_j}})$</h2><p>NNL是CE的一种应用形式，使用的就是CE的计算公式，但在通常看到的计算形式是这种： $-log\hat y_i$ .<br>首先CE计算的是两个分布（真实分布与预测分布）之间的交叉熵，即距离，以此距离值作为损失值。而在多分类（multi-class）任务中，预测分布式模型经过softmax函数后的输出vector，而真实分布则是每个输出目标类（ground truth）的onehot编码，将该值带入CE公式后就得到上面的公式</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 请多多指教。 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>LOSS函数</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="顺强">顺强</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-03-05, 23:59:00</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-18, 17:06:31</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/loss-function/" title="LOSS函数">http://shun-qiang.github.io/loss-function/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -267,6 +338,53 @@
         gitalk.render('comments')
     })
 </script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
 
 
     </div>

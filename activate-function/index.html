@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>寻梦乌托邦</title>
+  <title>激活函数 | 寻梦乌托邦</title>
   <meta name="keywords" content="">
-  <meta name="description" content="寻梦乌托邦">
+  <meta name="description" content="激活函数 | 寻梦乌托邦">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="正直 勇敢 追梦的人">
 <meta property="og:type" content="website">
@@ -51,7 +51,7 @@
 </div>
 
 <body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav mobile">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar-sun.jpg" />
@@ -222,12 +222,60 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-activate-function" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#学海无涯"><span class="toc-text"><a href="#&#x5B66;&#x6D77;&#x65E0;&#x6DAF;" class="headerlink" title="&#x5B66;&#x6D77;&#x65E0;&#x6DAF;"></a>&#x5B66;&#x6D77;&#x65E0;&#x6DAF;</span></a></li></ol>
+        <h1 class="article-title">激活函数</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="CNN">CNN</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-03-18 17:14:19'>2019-02-02 23:59</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#softmax"><span class="toc-text"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#公式-y-i-frac-e-z-i-sum-j-e-z-j"><span class="toc-text"><a href="#&#x516C;&#x5F0F;-y-i-frac-e-z-i-sum-j-e-z-j" class="headerlink" title="&#x516C;&#x5F0F; $y_{i}=\frac{e^{z_{i}}}{\sum_{j}^{}{e^{z_{j}}}}$"></a>&#x516C;&#x5F0F; $y_{i}=\frac{e^{z_{i}}}{\sum_{j}^{}{e^{z_{j}}}}$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L-i-log-frac-e-y-i-sum-j-e-y-j"><span class="toc-text"><a href="#L-i-log-frac-e-y-i-sum-j-e-y-j" class="headerlink" title="$L_{i} = -\log(\frac{e^{y_{i}}}{\sum_{j}e^{y_j}})$"></a>$L_{i} = -\log(\frac{e^{y_{i}}}{\sum_{j}e^{y_j}})$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-softmax"><span class="toc-text"><a href="#Why-softmax" class="headerlink" title="Why softmax"></a>Why softmax</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sigmoid"><span class="toc-text"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -240,14 +288,42 @@
     }
 </style>
 </div>
-            <h3 id="学海无涯"><a href="#学海无涯" class="headerlink" title="学海无涯"></a>学海无涯</h3>
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h1><p>softmax用于多分类过程中，它将多个神经元的输出，映射到（0,1）区间内，可以看成概率来理解，从而来进行多分类。<br>更形象的如下图：<br><img src="https://shun-qiang.github.io/img/softmax.jpg" alt=""></p>
+<h2 id="公式-y-i-frac-e-z-i-sum-j-e-z-j"><a href="#公式-y-i-frac-e-z-i-sum-j-e-z-j" class="headerlink" title="公式 $y_{i}=\frac{e^{z_{i}}}{\sum_{j}^{}{e^{z_{j}}}}$"></a>公式 $y_{i}=\frac{e^{z_{i}}}{\sum_{j}^{}{e^{z_{j}}}}$</h2><p>在神经网络的计算当中，我们经常需要计算按照神经网络的正向传播计算的分数S1，和按照正确标注计算的分数S2，之间的差距，计算Loss，才能应用反向传播。<br>Loss定义为交叉熵, NLL： </p>
+<h2 id="L-i-log-frac-e-y-i-sum-j-e-y-j"><a href="#L-i-log-frac-e-y-i-sum-j-e-y-j" class="headerlink" title="$L_{i} = -\log(\frac{e^{y_{i}}}{\sum_{j}e^{y_j}})$"></a>$L_{i} = -\log(\frac{e^{y_{i}}}{\sum_{j}e^{y_j}})$</h2><p>输出层我们一般选用softmax作为激活函数</p>
+<h3 id="Why-softmax"><a href="#Why-softmax" class="headerlink" title="Why softmax"></a>Why softmax</h3><ol>
+<li>计算上非常方便</li>
+<li>softmax函数值表示数据正确分类的值，它占的比重越大，这个样本的loss也就越小</li>
+</ol>
+<h1 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h1>
+      
+       <hr><span style="font-style: italic;color: gray;"> 请多多指教。 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>激活函数</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="顺强">顺强</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-02-02, 23:59:00</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-18, 17:14:19</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/activate-function/" title="激活函数">http://shun-qiang.github.io/activate-function/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -267,6 +343,53 @@
         gitalk.render('comments')
     })
 </script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
 
 
     </div>
