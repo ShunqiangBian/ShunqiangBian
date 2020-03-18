@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="正直 勇敢 追梦的人">
 <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://shun-qiang.github.io/categories/index.html">
+<meta property="og:title" content="标签">
+<meta property="og:url" content="http://shun-qiang.github.io/tags/index.html">
 <meta property="og:site_name" content="寻梦乌托邦">
 <meta property="og:description" content="正直 勇敢 追梦的人">
-<meta property="og:updated_time" content="2017-12-14T07:06:48.000Z">
+<meta property="og:updated_time" content="2017-12-14T07:06:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="标签">
 <meta name="twitter:description" content="正直 勇敢 追梦的人">
 
 
@@ -68,11 +68,19 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(10)</small></div></li>
+    <li><div class="all active">全部文章<small>(12)</small></div></li>
     
         
             
-            <li><div data-rel="CNN">CNN<small>(7)</small></div>
+            <li><div data-rel="CNN">CNN<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="HEXO">HEXO<small>(1)</small></div>
                 
             </li>
             
@@ -94,7 +102,7 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="10">
+<input type="hidden" id="yelog_site_posts_number" value="12">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -180,6 +188,14 @@
             <span class="post-date" title="2019-07-10 01:20:12">2019/07/10</span>
         </a>
         
+        <a  class="HEXO "
+           href="/hexo-troubleshoot/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo troubleshooting">Hexo troubleshooting</span>
+            <span class="post-date" title="2015-02-01 23:59:00">2015/02/01</span>
+        </a>
+        
         <a  class="CNN "
            href="/loss-function/"
            data-tag=""
@@ -212,6 +228,14 @@
             <span class="post-date" title="2019-01-18 23:59:00">2019/01/18</span>
         </a>
         
+        <a  class="CNN "
+           href="/yolov2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="YOLO9000 Better, Faster, Stronger">YOLO9000 Better, Faster, Stronger</span>
+            <span class="post-date" title="2020-03-18 23:59:00">2020/03/18</span>
+        </a>
+        
     </nav>
 </div>
     </div>
@@ -242,7 +266,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-18 18:26:30'>2019-02-02 23:59</time>
+        创建时间:<time class="date" title='更新时间: 2020-03-18 20:33:09'>2019-02-02 23:59</time>
         
     </div>
     <div class="article-meta">
@@ -300,7 +324,8 @@
 <li>计算求导上非常方便</li>
 <li>softmax函数值表示数据正确分类的值，它占的比重越大，这个样本的loss也就越小</li>
 </ol>
-<h1 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h1><p>Sigmoid 是一个可微的有界函数，在各点均有非负的导数。当 x→∞ 时，S(x)→1；当 x→−∞ 时，S(x)→0。常用于二元分类（Binary Classification）问题，以及神经网络的激活函数（Activation Function）（把线性的输入转换为非线性的输出）<br>其实logistic函数也就是经常说的sigmoid函数，它的几何形状也就是一条sigmoid曲线（S型曲线）。<br>在二元分类的情况下，Softmax 退化为了 Sigmoid。<br>$$<br>\sigma(x) = \frac{1}{(1+e^{-x})}<br>$$<br>sigmoid函数图像：<br><img src="https://shun-qiang.github.io/img/sigmoid.jpg" alt=""></p>
+<h1 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h1><p>Sigmoid 是一个可微的有界函数，在各点均有非负的导数。当 x→∞ 时，S(x)→1；当 x→−∞ 时，S(x)→0。常用于二元分类（Binary Classification）问题，以及神经网络的激活函数（Activation Function）（把线性的输入转换为非线性的输出）<br>其实logistic函数也就是经常说的sigmoid函数，它的几何形状也就是一条sigmoid曲线（S型曲线）。<br>在二元分类的情况下，Softmax 退化为了 Sigmoid。<br>$$<br>\sigma(x) = \frac{1}{(1+e^{-x})}<br>$$<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    sigmoid激活函数</span></span><br><span class="line"><span class="string">    :param x: 输入</span></span><br><span class="line"><span class="string">    :return: sigmoid(x)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span> + np.exp(-x))</span><br></pre></td></tr></table></figure></p>
+<p>sigmoid函数图像：<br><img src="https://shun-qiang.github.io/img/sigmoid.jpg" alt=""></p>
 <p>常用的激活函数以及相应的导数：<br><img src="https://shun-qiang.github.io/img/common-activate-function.jpg" alt=""></p>
 
       
@@ -319,7 +344,7 @@
     
     <p><span class="copy-title">本文作者:</span><a  title="顺强">顺强</a></p>
     <p><span class="copy-title">发布时间:</span>2019-02-02, 23:59:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-18, 18:26:30</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-18, 20:33:09</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/activate-function/" title="激活函数">http://shun-qiang.github.io/activate-function/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
