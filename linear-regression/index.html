@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>线性回归 Linear Regression | 寻梦乌托邦</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="线性回归 Linear Regression | 寻梦乌托邦">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="正直 勇敢 追梦的人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="分类">
+<meta property="og:url" content="http://shun-qiang.github.io/categories/index.html">
+<meta property="og:site_name" content="寻梦乌托邦">
+<meta property="og:description" content="正直 勇敢 追梦的人">
+<meta property="og:updated_time" content="2017-12-14T07:06:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分类">
+<meta name="twitter:description" content="正直 勇敢 追梦的人">
+
+
+<link rel="icon" href="/img/avatar-sun.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar-sun.jpg" />
+</a>
+<div class="author">
+    <span>顺强</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(35)</small></div></li>
+    
+        
+            
+            <li><div data-rel="CNN">CNN<small>(25)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="CV">CV<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="数据结构">数据结构<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="HEXO">HEXO<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="NUMPY">NUMPY<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="标记语言">标记语言<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="PYTHON">PYTHON<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="NLP">NLP<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="35">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/about/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="关于我">关于我</span>
+            <span class="post-date" title="2019-11-01 09:36:58">2019/11/01</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/activate-function/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="激活函数">激活函数</span>
+            <span class="post-date" title="2019-02-02 23:59:00">2019/02/02</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/bias-variance/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="偏差和方差 bias variance 过拟合 欠拟合">偏差和方差 bias variance 过拟合 欠拟合</span>
+            <span class="post-date" title="2015-02-01 23:59:00">2015/02/01</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/bilinear-convtranspose/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="双线性插值和转置卷积">双线性插值和转置卷积</span>
+            <span class="post-date" title="2015-02-01 23:59:00">2015/02/01</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/bn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Batch Normalization">Batch Normalization</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/cnn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CNN">CNN</span>
+            <span class="post-date" title="2019-01-18 23:59:00">2019/01/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/convolution/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="卷积">卷积</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="CV "
+           href="/cv-task/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CV Tasks">CV Tasks</span>
+            <span class="post-date" title="2019-12-01 23:59:00">2019/12/01</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/data-augmentation/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据增强 Data Augmentation">数据增强 Data Augmentation</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="数据结构 "
+           href="/data-structure/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tree">Tree</span>
+            <span class="post-date" title="2015-04-18 23:59:00">2015/04/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/deep-learning-start/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="深度学习">深度学习</span>
+            <span class="post-date" title="2019-02-18 23:59:00">2019/02/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/deeplab/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Deeplab">Deeplab</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/eval/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="评估标准">评估标准</span>
+            <span class="post-date" title="2019-01-18 23:59:00">2019/01/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/fcn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="FCN">FCN</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/feeling/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ResNet">ResNet</span>
+            <span class="post-date" title="2019-07-10 01:20:12">2019/07/10</span>
+        </a>
+        
+        <a  class="HEXO "
+           href="/hexo-troubleshoot/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo troubleshooting">Hexo troubleshooting</span>
+            <span class="post-date" title="2015-02-01 23:59:00">2015/02/01</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/image-caption/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="image-caption">image-caption</span>
+            <span class="post-date" title="2020-02-03 23:59:00">2020/02/03</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/inception/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Inception">Inception</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/lane-summary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="项目总结">项目总结</span>
+            <span class="post-date" title="2015-02-01 23:59:00">2015/02/01</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/learning-rate/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="深度学习超参数">深度学习超参数</span>
+            <span class="post-date" title="2019-02-18 23:59:00">2019/02/18</span>
+        </a>
+        
+        <a  class="NUMPY "
+           href="/linear-regression/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="线性回归 Linear Regression">线性回归 Linear Regression</span>
+            <span class="post-date" title="2019-12-06 01:20:12">2019/12/06</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/loss-function/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="LOSS函数">LOSS函数</span>
+            <span class="post-date" title="2019-03-05 23:59:00">2019/03/05</span>
+        </a>
+        
+        <a  class="标记语言 "
+           href="/markdown/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MARKDOWN 小知识">MARKDOWN 小知识</span>
+            <span class="post-date" title="2017-12-18 23:59:00">2017/12/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/mobilenet/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MobileNet">MobileNet</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="NUMPY "
+           href="/numpy-nn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Numpy 构建神经网络">Numpy 构建神经网络</span>
+            <span class="post-date" title="2018-01-06 01:20:12">2018/01/06</span>
+        </a>
+        
+        <a  class="NUMPY "
+           href="/numpy/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Numpy">Numpy</span>
+            <span class="post-date" title="2018-01-06 01:20:12">2018/01/06</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/pooling/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="池化层">池化层</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/python-logging/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python logging 使用小贴士">Python logging 使用小贴士</span>
+            <span class="post-date" title="2017-03-18 23:59:00">2017/03/18</span>
+        </a>
+        
+        <a  class="PYTHON "
+           href="/python-note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 笔记">Python 笔记</span>
+            <span class="post-date" title="2015-01-06 01:20:12">2015/01/06</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/receptive-field/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="感受野">感受野</span>
+            <span class="post-date" title="2019-01-18 23:59:00">2019/01/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/resnet/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ResNet">ResNet</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/rethink-relu-to/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Rethinking ReLU to Train Better CNNs">Rethinking ReLU to Train Better CNNs</span>
+            <span class="post-date" title="2015-02-01 23:59:00">2015/02/01</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/unet/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="UNET">UNET</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="NLP "
+           href="/word-vector/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Efficient Estimation of Word Representations in Vector Space">Efficient Estimation of Word Representations in Vector Space</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/yolov2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="YOLO9000 Better, Faster, Stronger">YOLO9000 Better, Faster, Stronger</span>
+            <span class="post-date" title="2020-03-18 23:59:00">2020/03/18</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-linear-regression" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">线性回归 Linear Regression</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="NUMPY">NUMPY</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-03-23 18:37:29'>2019-12-06 01:20</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#线性回归"><span class="toc-text"><a href="#&#x7EBF;&#x6027;&#x56DE;&#x5F52;" class="headerlink" title="&#x7EBF;&#x6027;&#x56DE;&#x5F52;"></a>&#x7EBF;&#x6027;&#x56DE;&#x5F52;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性回归的基本要素"><span class="toc-text"><a href="#&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x57FA;&#x672C;&#x8981;&#x7D20;" class="headerlink" title="&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x57FA;&#x672C;&#x8981;&#x7D20;"></a>&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x57FA;&#x672C;&#x8981;&#x7D20;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模型"><span class="toc-text"><a href="#&#x6A21;&#x578B;" class="headerlink" title="&#x6A21;&#x578B;"></a>&#x6A21;&#x578B;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型训练"><span class="toc-text"><a href="#&#x6A21;&#x578B;&#x8BAD;&#x7EC3;" class="headerlink" title="&#x6A21;&#x578B;&#x8BAD;&#x7EC3;"></a>&#x6A21;&#x578B;&#x8BAD;&#x7EC3;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#训练数据"><span class="toc-text"><a href="#&#x8BAD;&#x7EC3;&#x6570;&#x636E;" class="headerlink" title="&#x8BAD;&#x7EC3;&#x6570;&#x636E;"></a>&#x8BAD;&#x7EC3;&#x6570;&#x636E;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#损失函数"><span class="toc-text"><a href="#&#x635F;&#x5931;&#x51FD;&#x6570;" class="headerlink" title="&#x635F;&#x5931;&#x51FD;&#x6570;"></a>&#x635F;&#x5931;&#x51FD;&#x6570;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优化算法"><span class="toc-text"><a href="#&#x4F18;&#x5316;&#x7B97;&#x6CD5;" class="headerlink" title="&#x4F18;&#x5316;&#x7B97;&#x6CD5;"></a>&#x4F18;&#x5316;&#x7B97;&#x6CD5;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型预测"><span class="toc-text"><a href="#&#x6A21;&#x578B;&#x9884;&#x6D4B;" class="headerlink" title="&#x6A21;&#x578B;&#x9884;&#x6D4B;"></a>&#x6A21;&#x578B;&#x9884;&#x6D4B;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性回归的表示方法"><span class="toc-text"><a href="#&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;" class="headerlink" title="&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;"></a>&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#神经网络图"><span class="toc-text"><a href="#&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x56FE;" class="headerlink" title="&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x56FE;"></a>&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x56FE;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矢量计算表达式"><span class="toc-text"><a href="#&#x77E2;&#x91CF;&#x8BA1;&#x7B97;&#x8868;&#x8FBE;&#x5F0F;" class="headerlink" title="&#x77E2;&#x91CF;&#x8BA1;&#x7B97;&#x8868;&#x8FBE;&#x5F0F;"></a>&#x77E2;&#x91CF;&#x8BA1;&#x7B97;&#x8868;&#x8FBE;&#x5F0F;</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h1><p>线性回归输出是一个连续值，因此适用于回归问题。回归问题在实际中很常见，如预测房屋价格、气温、销售额等连续值的问题。与回归问题不同，分类问题中模型的最终输出是一个离散值。我们所说的图像分类、垃圾邮件识别、疾病检测等输出为离散值的问题都属于分类问题的范畴。softmax回归则适用于分类问题。</p>
+<p>由于线性回归和softmax回归都是单层神经网络，它们涉及的概念和技术同样适用于大多数的深度学习模型。我们首先以线性回归为例，介绍大多数深度学习模型的基本要素和表示方法。</p>
+<h2 id="线性回归的基本要素"><a href="#线性回归的基本要素" class="headerlink" title="线性回归的基本要素"></a>线性回归的基本要素</h2><p>我们以一个简单的房屋价格预测作为例子来解释线性回归的基本要素。这个应用的目标是预测一栋房子的售出价格（元）。我们知道这个价格取决于很多因素，如房屋状况、地段、市场行情等。为了简单起见，这里我们假设价格只取决于房屋状况的两个因素，即面积（平方米）和房龄（年）。接下来我们希望探索价格与这两个因素的具体关系。</p>
+<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>设房屋的面积为$x_1$，房龄为$x_2$，售出价格为$y$。我们需要建立基于输入$x_1$和$x_2$来计算输出$y$的表达式，也就是模型（model）。顾名思义，线性回归假设输出与各个输入之间是线性关系：</p>
+<p>$$\hat{y} = x_1 w_1 + x_2 w_2 + b,$$</p>
+<p>其中$w_1$和$w_2$是权重（weight），$b$是偏差（bias），且均为标量。它们是线性回归模型的参数（parameter）。模型输出$\hat{y}$是线性回归对真实价格$y$的预测或估计。我们通常允许它们之间有一定误差。</p>
+<h3 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h3><p>接下来我们需要通过数据来寻找特定的模型参数值，使模型在数据上的误差尽可能小。这个过程叫作模型训练（model training）。下面我们介绍模型训练所涉及的3个要素。</p>
+<h4 id="训练数据"><a href="#训练数据" class="headerlink" title="训练数据"></a>训练数据</h4><p>我们通常收集一系列的真实数据，例如多栋房屋的真实售出价格和它们对应的面积和房龄。我们希望在这个数据上面寻找模型参数来使模型的预测价格与真实价格的误差最小。在机器学习术语里，该数据集被称为训练数据集（training data set）或训练集（training set），一栋房屋被称为一个样本（sample），其真实售出价格叫作标签（label），用来预测标签的两个因素叫作特征（feature）。特征用来表征样本的特点。</p>
+<p>假设我们采集的样本数为$n$，索引为$i$的样本的特征为$x_1^{(i)}$和$x_2^{(i)}$，标签为$y^{(i)}$。对于索引为$i$的房屋，线性回归模型的房屋价格预测表达式为</p>
+<p>$$\hat{y}^{(i)} = x_1^{(i)} w_1 + x_2^{(i)} w_2 + b.$$</p>
+<h4 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h4><p>在模型训练中，我们需要衡量价格预测值与真实值之间的误差。通常我们会选取一个非负数作为误差，且数值越小表示误差越小。一个常用的选择是平方函数。它在评估索引为$i$的样本误差的表达式为</p>
+<p>$$\ell^{(i)}(w_1, w_2, b) = \frac{1}{2} \left(\hat{y}^{(i)} - y^{(i)}\right)^2,$$</p>
+<p>其中常数$1/2$使对平方项求导后的常数系数为1，这样在形式上稍微简单一些。显然，误差越小表示预测价格与真实价格越相近，且当二者相等时误差为0。给定训练数据集，这个误差只与模型参数相关，因此我们将它记为以模型参数为参数的函数。在机器学习里，将衡量误差的函数称为损失函数（loss function）。这里使用的平方误差函数也称为平方损失（square loss）。</p>
+<p>通常，我们用训练数据集中所有样本误差的平均来衡量模型预测的质量，即</p>
+<p>$$\ell(w_1, w_2, b) =\frac{1}{n} \sum_{i=1}^n \ell^{(i)}(w_1, w_2, b) =\frac{1}{n} \sum_{i=1}^n \frac{1}{2}\left(x_1^{(i)} w_1 + x_2^{(i)} w_2 + b - y^{(i)}\right)^2.$$</p>
+<p>在模型训练中，我们希望找出一组模型参数，记为$w_1^<em>, w_2^</em>, b^*$，来使训练样本平均损失最小：</p>
+<p>$$w_1^*, w_2^*, b^* = \operatorname*{argmin}_{w_1, w_2, b}\  \ell(w_1, w_2, b).$$</p>
+<h4 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h4><p>当模型和损失函数形式较为简单时，上面的误差最小化问题的解可以直接用公式表达出来。这类解叫作解析解（analytical solution）。本节使用的线性回归和平方误差刚好属于这个范畴。然而，大多数深度学习模型并没有解析解，只能通过优化算法有限次迭代模型参数来尽可能降低损失函数的值。这类解叫作数值解（numerical solution）。</p>
+<p>在求数值解的优化算法中，小批量随机梯度下降（mini-batch stochastic gradient descent）在深度学习中被广泛使用。它的算法很简单：先选取一组模型参数的初始值，如随机选取；接下来对参数进行多次迭代，使每次迭代都可能降低损失函数的值。在每次迭代中，先随机均匀采样一个由固定数目训练数据样本所组成的小批量（mini-batch）$\mathcal{B}$，然后求小批量中数据样本的平均损失有关模型参数的导数（梯度），最后用此结果与预先设定的一个正数的乘积作为模型参数在本次迭代的减小量。</p>
+<p>在训练本节讨论的线性回归模型的过程中，模型的每个参数将作如下迭代：</p>
+<p>$$<br>\begin{aligned}<br>w_1 &amp;\leftarrow w_1 -   \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}} \frac{ \partial \ell^{(i)}(w_1, w_2, b)  }{\partial w_1} = w_1 -   \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}}x_1^{(i)} \left(x_1^{(i)} w_1 + x_2^{(i)} w_2 + b - y^{(i)}\right),\<br>w_2 &amp;\leftarrow w_2 -   \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}} \frac{ \partial \ell^{(i)}(w_1, w_2, b)  }{\partial w_2} = w_2 -   \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}}x_2^{(i)} \left(x_1^{(i)} w_1 + x_2^{(i)} w_2 + b - y^{(i)}\right),\<br>b &amp;\leftarrow b -   \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}} \frac{ \partial \ell^{(i)}(w_1, w_2, b)  }{\partial b} = b -   \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}}\left(x_1^{(i)} w_1 + x_2^{(i)} w_2 + b - y^{(i)}\right).<br>\end{aligned}<br>$$</p>
+<p>在上式中，$|\mathcal{B}|$代表每个小批量中的样本个数（批量大小，batch size），$\eta$称作学习率（learning rate）并取正数。需要强调的是，这里的批量大小和学习率的值是人为设定的，并不是通过模型训练学出的，因此叫作超参数（hyperparameter）。我们通常所说的“调参”指的正是调节超参数，例如通过反复试错来找到超参数合适的值。在少数情况下，超参数也可以通过模型训练学出。本书对此类情况不做讨论。</p>
+<h3 id="模型预测"><a href="#模型预测" class="headerlink" title="模型预测"></a>模型预测</h3><p>模型训练完成后，我们将模型参数$w_1, w_2, b$在优化算法停止时的值分别记作$\hat{w}_1, \hat{w}_2, \hat{b}$。注意，这里我们得到的并不一定是最小化损失函数的最优解$w_1^*, w_2^*, b^*$，而是对最优解的一个近似。然后，我们就可以使用学出的线性回归模型$x_1 \hat{w}_1 + x_2 \hat{w}_2 + \hat{b}$来估算训练数据集以外任意一栋面积（平方米）为$x_1$、房龄（年）为$x_2$的房屋的价格了。这里的估算也叫作模型预测、模型推断或模型测试。</p>
+<h2 id="线性回归的表示方法"><a href="#线性回归的表示方法" class="headerlink" title="线性回归的表示方法"></a>线性回归的表示方法</h2><p>我们已经阐述了线性回归的模型表达式、训练和预测。下面我们解释线性回归与神经网络的联系，以及线性回归的矢量计算表达式。</p>
+<h3 id="神经网络图"><a href="#神经网络图" class="headerlink" title="神经网络图"></a>神经网络图</h3><p>在深度学习中，我们可以使用神经网络图直观地表现模型结构。为了更清晰地展示线性回归作为神经网络的结构，图3.1使用神经网络图表示本节中介绍的线性回归模型。神经网络图隐去了模型参数权重和偏差。</p>
+<p><img src="/img/img/linreg.svg" alt="线性回归是一个单层神经网络"></p>
+<p>在图3.1所示的神经网络中，输入分别为$x_1$和$x_2$，因此输入层的输入个数为2。输入个数也叫特征数或特征向量维度。图3.1中网络的输出为$o$，输出层的输出个数为1。需要注意的是，我们直接将图3.1中神经网络的输出$o$作为线性回归的输出，即$\hat{y} = o$。由于输入层并不涉及计算，按照惯例，图3.1所示的神经网络的层数为1。所以，线性回归是一个单层神经网络。输出层中负责计算$o$的单元又叫神经元。在线性回归中，$o$的计算依赖于$x_1$和$x_2$。也就是说，输出层中的神经元和输入层中各个输入完全连接。因此，这里的输出层又叫全连接层（fully-connected layer）或稠密层（dense layer）。</p>
+<h3 id="矢量计算表达式"><a href="#矢量计算表达式" class="headerlink" title="矢量计算表达式"></a>矢量计算表达式</h3><p>在模型训练或预测时，我们常常会同时处理多个数据样本并用到矢量计算。在介绍线性回归的矢量计算表达式之前，让我们先考虑对两个向量相加的两种方法。</p>
+<p>下面先定义两个1000维的向量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="comment"># 引入logger</span></span><br><span class="line"><span class="keyword">from</span> utils.logconfig <span class="keyword">import</span> getLogger</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> IPython <span class="keyword">import</span> display</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="string">"""线性回归</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">logger = getLogger()</span><br><span class="line">num_inputs = <span class="number">2</span></span><br><span class="line">num_examples = <span class="number">1000</span></span><br><span class="line">true_w = [<span class="number">2</span>, <span class="number">-3.4</span>]</span><br><span class="line">true_b = <span class="number">4.2</span></span><br><span class="line">features = np.random.normal(scale=<span class="number">1</span>, size=(num_examples, num_inputs))</span><br><span class="line">labels = true_w[<span class="number">0</span>] * features[:, <span class="number">0</span>] + true_w[<span class="number">1</span>] * features[:, <span class="number">1</span>] + true_b</span><br><span class="line">labels += np.random.normal(scale=<span class="number">0.01</span>, size=labels.shape)</span><br><span class="line">features = torch.tensor(features)</span><br><span class="line">labels = torch.tensor(labels)</span><br><span class="line"></span><br><span class="line">logger.info(<span class="string">"features[0]: &#123;&#125;,labels[0]: &#123;&#125;"</span>.format(features[<span class="number">0</span>], labels[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">data_iter</span><span class="params">(batch_size, features, labels)</span>:</span></span><br><span class="line">    num_examples = len(features)</span><br><span class="line">    indices = list(range(num_examples))</span><br><span class="line">    random.shuffle(indices)  <span class="comment"># 样本的读取顺序是随机的</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, num_examples, batch_size):</span><br><span class="line">        j = np.array(indices[i: min(i + batch_size, num_examples)])</span><br><span class="line">        <span class="keyword">yield</span> features[j], labels[j]  <span class="comment"># torch的切片操作</span></span><br><span class="line"></span><br><span class="line">batch_size = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> X, y <span class="keyword">in</span> data_iter(batch_size, features, labels):</span><br><span class="line">    logger.info(<span class="string">"\nX: &#123;&#125;, \ny: &#123;&#125;"</span>.format(X, y))</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">w = np.random.normal(<span class="number">0</span>, <span class="number">0.01</span>, (num_inputs, <span class="number">1</span>))</span><br><span class="line">b = torch.zeros(<span class="number">1</span>)</span><br><span class="line">w = torch.tensor(w, requires_grad=<span class="keyword">True</span>)</span><br><span class="line">b = torch.tensor(b, requires_grad=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">linreg</span><span class="params">(X, w, b)</span>:</span>  <span class="comment"># 本函数已保存在d2lzh包中方便以后使用</span></span><br><span class="line">    <span class="keyword">return</span> torch.matmul(X, w) + b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">squared_loss</span><span class="params">(y_hat, y)</span>:</span>  <span class="comment"># 本函数已保存在d2lzh包中方便以后使用</span></span><br><span class="line">    <span class="keyword">return</span> (y_hat - y.reshape(y_hat.shape)) ** <span class="number">2</span> / <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sgd</span><span class="params">(params, lr, batch_size)</span>:</span>  <span class="comment"># 本函数已保存在d2lzh_pytorch包中方便以后使用</span></span><br><span class="line">    <span class="keyword">for</span> param <span class="keyword">in</span> params:</span><br><span class="line">        param.data -= lr * param.grad / batch_size</span><br><span class="line"></span><br><span class="line">lr = <span class="number">0.03</span></span><br><span class="line">num_epochs = <span class="number">3</span></span><br><span class="line">net = linreg</span><br><span class="line">loss = squared_loss</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(num_epochs):  <span class="comment"># 训练模型一共需要num_epochs个迭代周期</span></span><br><span class="line">    <span class="comment"># 在每一个迭代周期中，会使用训练数据集中所有样本一次（假设样本数能够被批量大小整除）。X</span></span><br><span class="line">    <span class="comment"># 和y分别是小批量样本的特征和标签</span></span><br><span class="line">    <span class="keyword">for</span> X, y <span class="keyword">in</span> data_iter(batch_size, features, labels):</span><br><span class="line">        l = loss(net(X, w, b), y).sum()  <span class="comment"># l是有关小批量X和y的损失</span></span><br><span class="line">        l.backward()  <span class="comment"># 小批量的损失对模型参数求梯度</span></span><br><span class="line">        sgd([w, b], lr, batch_size)  <span class="comment"># 使用小批量随机梯度下降迭代模型参数</span></span><br><span class="line">        w.grad.data.zero_()</span><br><span class="line">        b.grad.data.zero_()</span><br><span class="line">    train_l = loss(net(features, w, b), labels)</span><br><span class="line">    print(<span class="string">'epoch %d, loss %f'</span> % (epoch + <span class="number">1</span>, train_l.mean()))</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires<em>grad</em>(True), rather than torch.tensor(sourceTensor).<br>imporve:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">w = torch.tensor(np.random.normal(<span class="number">0</span>, <span class="number">0.01</span>, (num_inputs, <span class="number">1</span>)))</span><br><span class="line">b = torch.zeros(<span class="number">1</span>)</span><br><span class="line">w.requires_grad_(requires_grad=<span class="keyword">True</span>)</span><br><span class="line">b.requires_grad_(requires_grad=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Error : Leaf variable has been moved into the graph interior<br>improve:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">param.data -= lr * param.grad / batch_size</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Error : grad can be implicitly created only for scalar outputs<br>loss.sum()解决<br>Try printing the losses, it should be a tensor with single number<br><a href="https://discuss.pytorch.org/t/runtimeerror-grad-can-be-implicitly-created-only-for-scalar-outputs/21217" target="_blank" rel="noopener">https://discuss.pytorch.org/t/runtimeerror-grad-can-be-implicitly-created-only-for-scalar-outputs/21217</a></p>
+</li>
+<li></li>
+</ol>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 请多多指教。 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>线性回归 Linear Regression</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="顺强">顺强</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-12-06, 01:20:12</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-23, 18:37:29</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/linear-regression/" title="线性回归 Linear Regression">http://shun-qiang.github.io/linear-regression/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '84f77e333f2e54aee8e3',
+            clientSecret: '9b89a9d1c0f55413c892dceedee0274ce40f34cf',
+            repo: 'shun-qiang.github.io',
+            owner: 'Shun-Qiang',
+            admin: ['Shun-Qiang'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2020 SHUNQIANG</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': [],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
