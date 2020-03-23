@@ -68,7 +68,7 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(35)</small></div></li>
+    <li><div class="all active">全部文章<small>(36)</small></div></li>
     
         
             
@@ -97,6 +97,14 @@
         
             
             <li><div data-rel="HEXO">HEXO<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="GIT">GIT<small>(1)</small></div>
                 
             </li>
             
@@ -142,7 +150,7 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="35">
+<input type="hidden" id="yelog_site_posts_number" value="36">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -285,19 +293,19 @@
         </a>
         
         <a  class="CNN "
-           href="/fcn/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="FCN">FCN</span>
-            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
-        </a>
-        
-        <a  class="CNN "
            href="/feeling/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="ResNet">ResNet</span>
             <span class="post-date" title="2019-07-10 01:20:12">2019/07/10</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/fcn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="FCN">FCN</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
         </a>
         
         <a  class="HEXO "
@@ -306,6 +314,14 @@
            data-author="" >
             <span class="post-title" title="Hexo troubleshooting">Hexo troubleshooting</span>
             <span class="post-date" title="2015-02-01 23:59:00">2015/02/01</span>
+        </a>
+        
+        <a  class="GIT "
+           href="/git-note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 笔记">Git 笔记</span>
+            <span class="post-date" title="2015-02-16 01:20:12">2015/02/16</span>
         </a>
         
         <a  class="CNN "
@@ -317,19 +333,19 @@
         </a>
         
         <a  class="CNN "
-           href="/inception/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Inception">Inception</span>
-            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
-        </a>
-        
-        <a  class="CNN "
            href="/lane-summary/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="项目总结">项目总结</span>
             <span class="post-date" title="2015-02-01 23:59:00">2015/02/01</span>
+        </a>
+        
+        <a  class="CNN "
+           href="/inception/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Inception">Inception</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
         </a>
         
         <a  class="CNN "
@@ -490,7 +506,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-21 11:56:17'>2015-02-01 23:59</time>
+        创建时间:<time class="date" title='更新时间: 2020-03-23 19:06:15'>2015-02-01 23:59</time>
         
     </div>
     <div class="article-meta">
@@ -523,7 +539,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-text"><a href="#&#x53C2;&#x8003;&#x94FE;&#x63A5;" class="headerlink" title="&#x53C2;&#x8003;&#x94FE;&#x63A5;"></a>&#x53C2;&#x8003;&#x94FE;&#x63A5;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#小小问答"><span class="toc-text"><a href="#&#x5C0F;&#x5C0F;&#x95EE;&#x7B54;" class="headerlink" title="&#x5C0F;&#x5C0F;&#x95EE;&#x7B54;"></a>&#x5C0F;&#x5C0F;&#x95EE;&#x7B54;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双线性插值代码"><span class="toc-text"><a href="#&#x53CC;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#x4EE3;&#x7801;" class="headerlink" title="&#x53CC;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#x4EE3;&#x7801;"></a>&#x53CC;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#x4EE3;&#x7801;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考链接"><span class="toc-text"><a href="#&#x53C2;&#x8003;&#x94FE;&#x63A5;" class="headerlink" title="&#x53C2;&#x8003;&#x94FE;&#x63A5;"></a>&#x53C2;&#x8003;&#x94FE;&#x63A5;</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -539,8 +555,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>通常我们训练的时候可以随机初始化权重，但是在 fcn 的网络中，使用随机初始化的权重将会需要大量的时间进行训练，所以我们卷积层可以使用在 imagenet 上预训练的权重，那么转置卷积我们使用什么样的初始权重呢？这里就要用到 bilinear kernel。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义 bilinear kernel</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bilinear_kernel</span><span class="params">(in_channels, out_channels, kernel_size)</span>:</span></span><br><span class="line">    <span class="string">'''return a bilinear filter tensor</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    factor = (kernel_size + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> kernel_size % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">        center = factor - <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        center = factor - <span class="number">0.5</span></span><br><span class="line">    og = np.ogrid[:kernel_size, :kernel_size]</span><br><span class="line">    filt = (<span class="number">1</span> - abs(og[<span class="number">0</span>] - center) / factor) * (<span class="number">1</span> - abs(og[<span class="number">1</span>] - center) / factor)</span><br><span class="line">    weight = np.zeros((in_channels, out_channels, kernel_size, kernel_size), dtype=<span class="string">'float32'</span>)</span><br><span class="line">    weight[range(in_channels), range(out_channels), :, :] = filt</span><br><span class="line">    <span class="keyword">return</span> torch.from_numpy(weight)</span><br></pre></td></tr></table></figure></p>
-<ol>
+        <p>先讲一下线性插值：已知数据 (x0, y0) 与 (x1, y1)，要计算 [x0, x1] 区间内某一位置 x 在直线上的y值</p>
+<p>通常我们训练的时候可以随机初始化权重，但是在 fcn 的网络中，使用随机初始化的权重将会需要大量的时间进行训练，所以我们卷积层可以使用在 imagenet 上预训练的权重，那么转置卷积我们使用什么样的初始权重呢？这里就要用到 bilinear kernel。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义 bilinear kernel</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bilinear_kernel</span><span class="params">(in_channels, out_channels, kernel_size)</span>:</span></span><br><span class="line">    <span class="string">'''return a bilinear filter tensor</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    factor = (kernel_size + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> kernel_size % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">        center = factor - <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        center = factor - <span class="number">0.5</span></span><br><span class="line">    og = np.ogrid[:kernel_size, :kernel_size]</span><br><span class="line">    filt = (<span class="number">1</span> - abs(og[<span class="number">0</span>] - center) / factor) * (<span class="number">1</span> - abs(og[<span class="number">1</span>] - center) / factor)</span><br><span class="line">    weight = np.zeros((in_channels, out_channels, kernel_size, kernel_size), dtype=<span class="string">'float32'</span>)</span><br><span class="line">    weight[range(in_channels), range(out_channels), :, :] = filt</span><br><span class="line">    <span class="keyword">return</span> torch.from_numpy(weight)</span><br></pre></td></tr></table></figure></p>
+<h3 id="小小问答"><a href="#小小问答" class="headerlink" title="小小问答"></a>小小问答</h3><ol>
 <li><p>双线性插值和转置卷积在进行上采样的时候，有什么区别吗？</p>
 </li>
 <li><p>转置卷积和膨胀卷积的区别，分别在哪些网络被使用（FCN\UNET\DEEPLAB）</p>
@@ -548,7 +565,9 @@
 <li><p>pytorch中，转置卷积的API output_padding是什么？什么时候用呢？存在的意义是什么？</p>
 </li>
 </ol>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://medium.com/activating-robotic-minds/up-sampling-with-transposed-convolution-9ae4f2df52d0" target="_blank" rel="noopener">https://medium.com/activating-robotic-minds/up-sampling-with-transposed-convolution-9ae4f2df52d0</a><br><a href="https://blog.csdn.net/qq_41368247/article/details/86626446" target="_blank" rel="noopener">https://blog.csdn.net/qq_41368247/article/details/86626446</a></p>
+<h3 id="双线性插值代码"><a href="#双线性插值代码" class="headerlink" title="双线性插值代码"></a>双线性插值代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> utils.image_process <span class="keyword">import</span> crop_resize_data</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Bilinear_interpolation</span><span class="params">(src, new_size)</span>:</span></span><br><span class="line">    dst_w, dst_h = new_size[:<span class="number">2</span>] <span class="comment">#目标图像的 W H</span></span><br><span class="line">    src_h, src_w = src.shape[:<span class="number">2</span>]</span><br><span class="line">    <span class="keyword">if</span> src_h == dst_h <span class="keyword">and</span> src_w == dst_w:</span><br><span class="line">        <span class="keyword">return</span> src.copy()</span><br><span class="line">    <span class="comment">#得到缩放比， 定位目标点在原图的位置</span></span><br><span class="line">    scale_x = float(src_w)/dst_w</span><br><span class="line">    scale_y = float(src_h)/dst_h</span><br><span class="line"></span><br><span class="line">    dst = np.zeros((dst_h, dst_w, <span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">3</span>): <span class="comment">#循环channels</span></span><br><span class="line">        <span class="keyword">for</span> dst_y <span class="keyword">in</span> range(dst_h): <span class="comment">#循环高</span></span><br><span class="line">            <span class="keyword">for</span> dst_x <span class="keyword">in</span> range(dst_w): <span class="comment">#循环宽</span></span><br><span class="line">                <span class="comment">#得到目标像素点在原图上的坐标</span></span><br><span class="line">                <span class="comment">#每个像素点都是一个边长为1的正方形，位于（h，w）的像素点，她的中心是（h+0.5，w+0.5）</span></span><br><span class="line">                src_x = (dst_x + <span class="number">0.5</span>) * scale_x<span class="number">-0.5</span></span><br><span class="line">                src_y = (dst_y +<span class="number">0.5</span>)*scale_y <span class="number">-0.5</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">#top_left point</span></span><br><span class="line">                src_x_0 = int(np.floor(src_x))</span><br><span class="line">                src_y_0 = int(np.floor(src_y))</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 像素值的坐标为整数， 边界为1， 防止出界</span></span><br><span class="line">                src_x_1 = min(src_x_0+<span class="number">1</span>, src_w <span class="number">-1</span>)</span><br><span class="line">                src_y_1 = min(src_y_0+<span class="number">1</span>, src_h <span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">                value_0 = (src_x_1 - src_x)*src[src_y_0,src_x_0,n] + (src_x-src_x_0)*src[src_y_0,src_x_1,n]</span><br><span class="line">                value_1 = (src_x_1 - src_x)*src[src_y_1,src_x_0,n] + (src_x-src_x_0)*src[src_y_1,src_x_1,n]</span><br><span class="line">                dst[dst_y,dst_x,n] = int((src_y_1-src_y)*value_0) + int((src_y-src_y_0)*value_1)</span><br><span class="line">                dst[dst&gt;<span class="number">255</span>]=<span class="number">255</span></span><br><span class="line">                dst[dst&lt;<span class="number">0</span>]=<span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> dst.astype(<span class="string">'uint8'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://medium.com/activating-robotic-minds/up-sampling-with-transposed-convolution-9ae4f2df52d0" target="_blank" rel="noopener">https://medium.com/activating-robotic-minds/up-sampling-with-transposed-convolution-9ae4f2df52d0</a><br><a href="https://blog.csdn.net/qq_41368247/article/details/86626446" target="_blank" rel="noopener">https://blog.csdn.net/qq_41368247/article/details/86626446</a><br><a href="https://rosettacode.org/wiki/Bilinear_interpolation" target="_blank" rel="noopener">https://rosettacode.org/wiki/Bilinear_interpolation</a></p>
+<p>Make a pause between images display in openCV：<br><a href="https://stackoverflow.com/questions/46671348/make-a-pause-between-images-display-in-opencv" target="_blank" rel="noopener">https://stackoverflow.com/questions/46671348/make-a-pause-between-images-display-in-opencv</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 请多多指教。 </span>
@@ -566,7 +585,7 @@
     
     <p><span class="copy-title">本文作者:</span><a  title="顺强">顺强</a></p>
     <p><span class="copy-title">发布时间:</span>2015-02-01, 23:59:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-21, 11:56:17</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-23, 19:06:15</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/bilinear-convtranspose/" title="双线性插值和转置卷积">http://shun-qiang.github.io/bilinear-convtranspose/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
