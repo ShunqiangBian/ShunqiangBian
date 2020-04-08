@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>CV Tasks | 寻梦乌托邦</title>
+  <title>C++程序设计（面向对象进阶） | 寻梦乌托邦</title>
   <meta name="keywords" content="">
-  <meta name="description" content="CV Tasks | 寻梦乌托邦">
+  <meta name="description" content="C++程序设计（面向对象进阶） | 寻梦乌托邦">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="正直 勇敢 追梦的人">
 <meta property="og:type" content="website">
@@ -720,9 +720,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-cv-task" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-cpp" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">CV Tasks</h1>
+        <h1 class="article-title">C++程序设计（面向对象进阶）</h1>
     
     <div class="article-meta">
         
@@ -730,7 +730,7 @@
         
         <span class="book">
             
-                <a  data-rel="CV">CV</a>
+                <a  data-rel="C++">C++</a>
             
         </span>
         
@@ -738,7 +738,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-04 21:15:48'>2019-12-01 23:59</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-08 22:30:28'>2020-02-24 23:59</time>
         
     </div>
     <div class="article-meta">
@@ -771,7 +771,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Classification"><span class="toc-text"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Semantic-Segmentation"><span class="toc-text"><a href="#Semantic-Segmentation" class="headerlink" title="Semantic Segmentation"></a>Semantic Segmentation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Label-each-pixel-in-the-image-with-a-category"><span class="toc-text"><a href="#Label-each-pixel-in-the-image-with-a-category" class="headerlink" title="Label each pixel in the image with a category"></a>Label each pixel in the image with a category</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Don’t-differentiate-instances-only-care-about-pixels"><span class="toc-text"><a href="#Don&#x2019;t-differentiate-instances-only-care-about-pixels" class="headerlink" title="Don&#x2019;t differentiate instances, only care about pixels"></a>Don&#x2019;t differentiate instances, only care about pixels</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#We-can-think-semantic-segmentation-as-image-classification-at-a-pixel-level"><span class="toc-text"><a href="#We-can-think-semantic-segmentation-as-image-classification-at-a-pixel-level" class="headerlink" title="We can think semantic segmentation as image classification at a pixel level"></a>We can think semantic segmentation as image classification at a pixel level</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FCN"><span class="toc-text"><a href="#FCN" class="headerlink" title="FCN"></a>FCN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Encoder-Decoder"><span class="toc-text"><a href="#Encoder-Decoder" class="headerlink" title="Encoder-Decoder"></a>Encoder-Decoder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DilatedFCN"><span class="toc-text"><a href="#DilatedFCN" class="headerlink" title="DilatedFCN"></a>DilatedFCN</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Object-Detection"><span class="toc-text"><a href="#Object-Detection" class="headerlink" title="Object Detection"></a>Object Detection</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Instance-Segmentatic"><span class="toc-text"><a href="#Instance-Segmentatic" class="headerlink" title="Instance Segmentatic"></a>Instance Segmentatic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#任务搭建"><span class="toc-text"><a href="#&#x4EFB;&#x52A1;&#x642D;&#x5EFA;" class="headerlink" title="&#x4EFB;&#x52A1;&#x642D;&#x5EFA;"></a>&#x4EFB;&#x52A1;&#x642D;&#x5EFA;</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference-引用"><span class="toc-text"><a href="#Reference-&#x5F15;&#x7528;" class="headerlink" title="Reference &#x5F15;&#x7528;"></a>Reference &#x5F15;&#x7528;</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -787,15 +787,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h1><h1 id="Semantic-Segmentation"><a href="#Semantic-Segmentation" class="headerlink" title="Semantic Segmentation"></a>Semantic Segmentation</h1><h2 id="Label-each-pixel-in-the-image-with-a-category"><a href="#Label-each-pixel-in-the-image-with-a-category" class="headerlink" title="Label each pixel in the image with a category"></a>Label each pixel in the image with a category</h2><h2 id="Don’t-differentiate-instances-only-care-about-pixels"><a href="#Don’t-differentiate-instances-only-care-about-pixels" class="headerlink" title="Don’t differentiate instances, only care about pixels"></a>Don’t differentiate instances, only care about pixels</h2><h2 id="We-can-think-semantic-segmentation-as-image-classification-at-a-pixel-level"><a href="#We-can-think-semantic-segmentation-as-image-classification-at-a-pixel-level" class="headerlink" title="We can think semantic segmentation as image classification at a pixel level"></a>We can think semantic segmentation as image classification at a pixel level</h2><h3 id="FCN"><a href="#FCN" class="headerlink" title="FCN"></a>FCN</h3><h3 id="Encoder-Decoder"><a href="#Encoder-Decoder" class="headerlink" title="Encoder-Decoder"></a>Encoder-Decoder</h3><h3 id="DilatedFCN"><a href="#DilatedFCN" class="headerlink" title="DilatedFCN"></a>DilatedFCN</h3><h1 id="Object-Detection"><a href="#Object-Detection" class="headerlink" title="Object Detection"></a>Object Detection</h1><h1 id="Instance-Segmentatic"><a href="#Instance-Segmentatic" class="headerlink" title="Instance Segmentatic"></a>Instance Segmentatic</h1><h3 id="任务搭建"><a href="#任务搭建" class="headerlink" title="任务搭建"></a>任务搭建</h3><ol>
-<li>数据处理<br>封装函数  读文件  预处理  异步</li>
-<li>模型设计<br>1）网络结构  单层网络  多层网络  激活函数  CNN<br>2）损失函数  均方误差  Cross Entropy + SoftMax</li>
-<li>训练配置<br>1）优化器  SGD  学习率  Momentum/AdaGrad/Adam  正则化<br>2）资源配置  单机CPU  GPU 多机多卡 单机多卡</li>
-<li>训练过程<br>训练 评价指标  校验  作图</li>
-<li>保存/加载<br>预测场景 恢复训练场景</li>
-</ol>
-<p>Dense prediction 为什么不用same padding，为什么要先下采样再上采样？</p>
-
+        <p>什么都能干的编程语言，和干活糙快猛的编程语言分别是 C++ 、 Python</p>
+<p>ISO/IEC 14882:2011标准之前的C++被称为 Classic C++</p>
+<p>使用Visual Studio</p>
+<p>编译C++程序时，需要针对每个项目单独指定所使用的C++标准</p>
+<p>编程范式：<br>C语言支持结构化编程范式<br>C++ 面向对象编程范式<br>泛型编程范式<br>函数式编程范式</p>
+<p>参考书：<br>《C++程序设计》 第三版 梁勇<br>《Essential C++》 (有中译本)<br>作者：Stanley B. Lippman<br>适于有编程基础的人<br>《The C++ Programming language》 (有中译本)<br>作者：Bjarne Stroustrup<br>一本每个人都应该买但不一定要看的书<br>可以当字典用，不适用于初学者</p>
+<p>开发工具：<br>Visual Studio</p>
+<p>cin<br>cout<br>c 代表 character</p>
+<h2 id="Reference-引用"><a href="#Reference-引用" class="headerlink" title="Reference 引用"></a>Reference 引用</h2>
       
        <hr><span style="font-style: italic;color: gray;"> 请多多指教。 </span>
     </div>
@@ -808,12 +808,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>CV Tasks</p>
+    <p><span class="copy-title">文章标题:</span>C++程序设计（面向对象进阶）</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="顺强">顺强</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-01, 23:59:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-04, 21:15:48</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/cv-task/" title="CV Tasks">http://shun-qiang.github.io/cv-task/</a>
+    <p><span class="copy-title">发布时间:</span>2020-02-24, 23:59:00</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-08, 22:30:28</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/cpp/" title="C++程序设计（面向对象进阶）">http://shun-qiang.github.io/cpp/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
