@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>VGG Convolutional Neural Networks | 寻梦乌托邦</title>
+  <title>leetcode 刷题计划 | 寻梦乌托邦</title>
   <meta name="keywords" content="">
-  <meta name="description" content="VGG Convolutional Neural Networks | 寻梦乌托邦">
+  <meta name="description" content="leetcode 刷题计划 | 寻梦乌托邦">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="正直 勇敢 追梦的人">
 <meta property="og:type" content="website">
@@ -752,9 +752,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-vgg" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-leetcode-exercise" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">VGG Convolutional Neural Networks</h1>
+        <h1 class="article-title">leetcode 刷题计划</h1>
     
     <div class="article-meta">
         
@@ -762,7 +762,7 @@
         
         <span class="book">
             
-                <a  data-rel="Paper">Paper</a>
+                <a  data-rel="leetcode">leetcode</a>
             
         </span>
         
@@ -770,7 +770,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-08 10:19:54'>2020-01-15 23:59</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-12 22:47:53'>2019-11-18 23:59</time>
         
     </div>
     <div class="article-meta">
@@ -803,7 +803,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#以-Lintcode-题号刷题（基础题部分-提高部分）"><span class="toc-text"><a href="#&#x4EE5;-Lintcode-&#x9898;&#x53F7;&#x5237;&#x9898;&#xFF08;&#x57FA;&#x7840;&#x9898;&#x90E8;&#x5206;-&#x63D0;&#x9AD8;&#x90E8;&#x5206;&#xFF09;" class="headerlink" title="&#x4EE5; Lintcode &#x9898;&#x53F7;&#x5237;&#x9898;&#xFF08;&#x57FA;&#x7840;&#x9898;&#x90E8;&#x5206;+&#x63D0;&#x9AD8;&#x90E8;&#x5206;&#xFF09;"></a>&#x4EE5; Lintcode &#x9898;&#x53F7;&#x5237;&#x9898;&#xFF08;&#x57FA;&#x7840;&#x9898;&#x90E8;&#x5206;+&#x63D0;&#x9AD8;&#x90E8;&#x5206;&#xFF09;</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -819,13 +819,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>VERY DEEP CONVOLUTIONAL NETWORKS FOR LARGE-SCALE IMAGE RECOGNITION<br>Author: K Simonyan ， A Zisserman<br>Year: 2014</p>
-<p>为什么叫VGG？<br>牛津大学 Visual Geometry Group（视觉几何组）的同志写的论文，所以叫 VGG<br><img src="/img/vgg_net.jpg" alt="模型网络结构"></p>
-<ol>
-<li>共有5个池化层，所以可以把卷积部分视为5个部分</li>
-<li>所有卷积层都是同样大小的filter！尺寸3x3，卷积步长Stirde = 1，填充Padding = 1<br>网络设计优点：<br>3x3是最小的能够捕获左、右、上、下和中心概念的尺寸；<br>两个3x3的卷积层连在一起可视为5x5的卷积核，三个连在一起可视为一个 7x7；<br>多个3x3的卷积层比一个大尺寸的filter卷积层有更多的非线性，使得判决函数更加具有判断性；<br>多个3x3的卷积层笔一个大尺寸的filter具有更少的参数。</li>
+        <h2 id="以-Lintcode-题号刷题（基础题部分-提高部分）"><a href="#以-Lintcode-题号刷题（基础题部分-提高部分）" class="headerlink" title="以 Lintcode 题号刷题（基础题部分+提高部分）"></a>以 Lintcode 题号刷题（基础题部分+提高部分）</h2><ol>
+<li><p>Beginning （4 + 3）<br>627 667<br>13 841<br>415 594<br>200</p>
+</li>
+<li><p>Binary Search &amp; Log(n) Algorithm （10 + 18）<br>458 462 457<br>585 459 141<br>460 235 617<br>447 254 586<br>428 28 160<br>159 14 63<br>140 414 437<br>75 61 183<br>74 38<br>62 600</p>
+</li>
+<li><p>2 Pointers （10 + 17）<br>228 604 894<br>607 56 625<br>539 609 610<br>521 587 380<br>464 533 102<br>608 443 58<br>143 461 103<br>57 382<br>31 148<br>5 59</p>
+</li>
+<li><p>BFS / Topological Sort （10 + 14）<br>433 242 573<br>69 624 434<br>615 618 600<br>616 598 574<br>611 531<br>605 178<br>137 431<br>127 71<br>7 70<br>120 794</p>
+</li>
+<li><p>Binary Tree （10 + 18）<br>900 597 88<br>596 474 472<br>480 246 595<br>453 155 619<br>93 97 614<br>902 68 520<br>578 67 475<br>95 66 94<br>901 915<br>86 448</p>
+</li>
+<li><p>DFS （19 + 18）<br>680 652<br>136 570<br>153 426<br>152 427<br>135 780<br>18 683<br>17 196<br>582 107<br>192 108<br>154 190<br>425 198<br>10 197<br>34 52<br>33 51<br>16 634<br>15 828<br>829 211<br>132 123<br>121</p>
+</li>
+<li><p>Data Structure I &amp; II （22 + 43）<br>642 495 165<br>494 128 6<br>209 685 817<br>657 613 793<br>612 606 665<br>544 601 548<br>104 545 405<br>40 526 149<br>4 486 139<br>134 130 104<br>839 129 41<br>547 124 620<br>138 551 617<br>64 494 191<br>41 575 151<br>944 541 150<br>840 540 45<br>654 528 42<br>577 471 404<br>486 224 393<br>931 24 43<br>65 943</p>
+</li>
+<li><p>DP （10 + 7）<br>115 272<br>114 630<br>111 117<br>110 602<br>603 622<br>611 254<br>513 584<br>116<br>109<br>76</p>
+</li>
 </ol>
-<p>参考链接：<br><a href="http://www.robots.ox.ac.uk/~vgg/practicals/cnn/index.html" target="_blank" rel="noopener">http://www.robots.ox.ac.uk/~vgg/practicals/cnn/index.html</a></p>
+<p>参考链接;<br><a href="https://lefttree.gitbooks.io/leetcode-categories/index.html" target="_blank" rel="noopener">leetcode分类</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 请多多指教。 </span>
@@ -839,12 +851,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>VGG Convolutional Neural Networks</p>
+    <p><span class="copy-title">文章标题:</span>leetcode 刷题计划</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="顺强">顺强</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-01-15, 23:59:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-08, 10:19:54</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/vgg/" title="VGG Convolutional Neural Networks">http://shun-qiang.github.io/vgg/</a>
+    <p><span class="copy-title">发布时间:</span>2019-11-18, 23:59:00</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-12, 22:47:53</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/leetcode-exercise/" title="leetcode 刷题计划">http://shun-qiang.github.io/leetcode-exercise/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
