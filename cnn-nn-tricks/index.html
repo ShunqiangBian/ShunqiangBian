@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>图像分割技巧总结 | 寻梦乌托邦</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="图像分割技巧总结 | 寻梦乌托邦">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="正直 勇敢 追梦的人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="分类">
+<meta property="og:url" content="http://shunqiang.ml/categories/index.html">
+<meta property="og:site_name" content="寻梦乌托邦">
+<meta property="og:description" content="正直 勇敢 追梦的人">
+<meta property="og:updated_time" content="2017-12-14T07:06:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分类">
+<meta name="twitter:description" content="正直 勇敢 追梦的人">
+
+
+<link rel="icon" href="/img/avatar-sun.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar-sun.jpg" />
+</a>
+<div class="author">
+    <span>顺强</span>
+</div>
+
+<div class="icon">
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(115)</small></div></li>
+    
+        
+            
+            <li><div data-rel="其他">其他<small>(10)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="深度学习"><i class="fold iconfont icon-right"></i>深度学习<small>(41)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="CV">CV<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="CNN">CNN<small>(6)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Paper">Paper<small>(8)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="NLP">NLP<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Algorithm"><i class="fold iconfont icon-right"></i>Algorithm<small>(44)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="Lintcode">Lintcode<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Serach">Serach<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Leetcode">Leetcode<small>(38)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Sort">Sort<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Search">Search<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="Math">Math<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="数据结构">数据结构<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="编程语言">编程语言<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="115">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color4">BFS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">points</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">LinkList</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">stack</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">Dynamic Programming</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">Hard</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">Graph Theory</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">Binary Search</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">quicksort</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">Data Structure</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">DFS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">insertsort</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">distributed</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class=""
+           href="/about/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="关于我">关于我</span>
+            <span class="post-date" title="2019-11-01 09:36:58">2019/11/01</span>
+        </a>
+        
+        <a  class="其他 "
+           href="/colab-offline/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Colab 防止断线">Colab 防止断线</span>
+            <span class="post-date" title="2018-10-28 23:59:00">2018/10/28</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/image-caption/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="image-caption">image-caption</span>
+            <span class="post-date" title="2020-02-03 23:59:00">2020/02/03</span>
+        </a>
+        
+        <a  class="其他 "
+           href="/git-note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 笔记">Git 笔记</span>
+            <span class="post-date" title="2015-02-16 01:20:12">2015/02/16</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/kalman-filter/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Kalman Filter">Kalman Filter</span>
+            <span class="post-date" title="2020-04-13 23:59:00">2020/04/13</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cv-task/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CV Tasks">CV Tasks</span>
+            <span class="post-date" title="2019-12-01 23:59:00">2019/12/01</span>
+        </a>
+        
+        <a  class="其他 "
+           href="/hexo-troubleshoot/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo troubleshooting">Hexo troubleshooting</span>
+            <span class="post-date" title="2015-02-01 23:59:00">2015/02/01</span>
+        </a>
+        
+        <a  class="其他 "
+           href="/linux-note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux 笔记">Linux 笔记</span>
+            <span class="post-date" title="2015-01-06 01:20:12">2015/01/06</span>
+        </a>
+        
+        <a  class="其他 "
+           href="/license/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="license">license</span>
+            <span class="post-date" title="2018-09-15 23:59:00">2018/09/15</span>
+        </a>
+        
+        <a  class="Algorithm Lintcode "
+           href="/maximum-number/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="585. Maximum Number in Mountain Sequence">585. Maximum Number in Mountain Sequence</span>
+            <span class="post-date" title="2019-09-17 23:59:00">2019/09/17</span>
+        </a>
+        
+        <a  class="深度学习 CV "
+           href="/lane-summary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="车道线项目总结">车道线项目总结</span>
+            <span class="post-date" title="2020-03-23 23:59:00">2020/03/23</span>
+        </a>
+        
+        <a  class="其他 "
+           href="/markdown/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MARKDOWN 小知识">MARKDOWN 小知识</span>
+            <span class="post-date" title="2017-12-18 23:59:00">2017/12/18</span>
+        </a>
+        
+        <a  class="其他 "
+           href="/widows-keybord-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="windows 快捷键">windows 快捷键</span>
+            <span class="post-date" title="2015-04-21 23:59:00">2015/04/21</span>
+        </a>
+        
+        <a  class=""
+           href="/resume/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="简介">简介</span>
+            <span class="post-date" title="2020-05-12 23:59:00">2020/05/12</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/deep-learning-start/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="深度学习">深度学习</span>
+            <span class="post-date" title="2019-02-18 23:59:00">2019/02/18</span>
+        </a>
+        
+        <a  class="Math "
+           href="/advanced-mathematics-double-integral/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="二重积分">二重积分</span>
+            <span class="post-date" title="2019-04-01 23:59:00">2019/04/01</span>
+        </a>
+        
+        <a  class="Math "
+           href="/advanced-mathematics-proof/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="角度证明题">角度证明题</span>
+            <span class="post-date" title="2015-06-18 23:59:00">2015/06/18</span>
+        </a>
+        
+        <a  class="Math "
+           href="/advanced-mathematics-calculus-english/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="微积分术语中英文对照">微积分术语中英文对照</span>
+            <span class="post-date" title="2018-09-21 23:59:00">2018/09/21</span>
+        </a>
+        
+        <a  class="Math "
+           href="/advanced-mathematics-matrix/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="矩阵">矩阵</span>
+            <span class="post-date" title="2019-05-11 23:59:00">2019/05/11</span>
+        </a>
+        
+        <a  class="数据结构 "
+           href="/data-structure-gragh/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="图">图</span>
+            <span class="post-date" title="2019-10-15 23:59:00">2019/10/15</span>
+        </a>
+        
+        <a  class="Math "
+           href="/advanced-mathematics-function/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="函数的凹凸性">函数的凹凸性</span>
+            <span class="post-date" title="2017-04-01 23:59:00">2017/04/01</span>
+        </a>
+        
+        <a  class="Algorithm Serach "
+           href="/algorithm-search/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="查找">查找</span>
+            <span class="post-date" title="2019-09-14 23:59:00">2019/09/14</span>
+        </a>
+        
+        <a  class="其他 "
+           href="/english-eg-word/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="英语词根词缀">英语词根词缀</span>
+            <span class="post-date" title="2019-11-18 23:59:00">2019/11/18</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/c-cpp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C++ 程序设计（面向对象进阶）">C++ 程序设计（面向对象进阶）</span>
+            <span class="post-date" title="2020-02-24 23:59:00">2020/02/24</span>
+        </a>
+        
+        <a  class="数据结构 "
+           href="/data-structure-tree/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tree">Tree</span>
+            <span class="post-date" title="2015-04-18 23:59:00">2015/04/18</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-102-binary-tree-level/"
+           data-tag="BFS"
+           data-author="" >
+            <span class="post-title" title="102. Binary Tree Level Order Traversal">102. Binary Tree Level Order Traversal</span>
+            <span class="post-date" title="2020-04-13 23:59:00">2020/04/13</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-114-flatten-binary-tree-to-linked-list/"
+           data-tag="points,LinkList,stack"
+           data-author="" >
+            <span class="post-title" title="114. Flatten Binary Tree to Linked List">114. Flatten Binary Tree to Linked List</span>
+            <span class="post-date" title="2020-04-30 23:59:00">2020/04/30</span>
+        </a>
+        
+        <a  class="数据结构 "
+           href="/data-structure-linear-list/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="线性表">线性表</span>
+            <span class="post-date" title="2019-09-05 23:59:00">2019/09/05</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-104-leetcode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="104. Maximum Depth of Binary Tree">104. Maximum Depth of Binary Tree</span>
+            <span class="post-date" title="2019-11-18 23:59:00">2019/11/18</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-125-valid-palindrome/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="125. Valid Palindrome">125. Valid Palindrome</span>
+            <span class="post-date" title="2019-10-16 23:59:00">2019/10/16</span>
+        </a>
+        
+        <a  class="Algorithm Sort "
+           href="/algorithm-sort-algorithm/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="排序算法">排序算法</span>
+            <span class="post-date" title="2019-09-02 23:59:00">2019/09/02</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-198-house-rob/"
+           data-tag="Dynamic Programming"
+           data-author="" >
+            <span class="post-title" title="198. House Robber">198. House Robber</span>
+            <span class="post-date" title="2019-08-18 23:59:00">2019/08/18</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-1406-stone-game-3/"
+           data-tag="Dynamic Programming,Hard"
+           data-author="" >
+            <span class="post-title" title="1406. Stone Game III">1406. Stone Game III</span>
+            <span class="post-date" title="2019-08-18 23:59:00">2019/08/18</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-200-number-of-islands/"
+           data-tag="BFS,Graph Theory"
+           data-author="" >
+            <span class="post-title" title="200. Number of Islands">200. Number of Islands</span>
+            <span class="post-date" title="2019-04-21 23:59:00">2019/04/21</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-240-search-a-2D-m-2/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="240. Search a 2D Matrix II">240. Search a 2D Matrix II</span>
+            <span class="post-date" title="2019-04-03 23:59:00">2019/04/03</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-322-coin-change/"
+           data-tag="Dynamic Programming"
+           data-author="" >
+            <span class="post-title" title="322. Coin Change">322. Coin Change</span>
+            <span class="post-date" title="2019-08-18 23:59:00">2019/08/18</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-162-find-peak-el/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="162. Find Peak Element">162. Find Peak Element</span>
+            <span class="post-date" title="2020-01-13 23:59:00">2020/01/13</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-27-remove-elment/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="27. Remove Element">27. Remove Element</span>
+            <span class="post-date" title="2020-04-25 23:59:00">2020/04/25</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-215-kth-largest/"
+           data-tag="quicksort"
+           data-author="" >
+            <span class="post-title" title="215. Kth Largest Element in an Array">215. Kth Largest Element in an Array</span>
+            <span class="post-date" title="2020-04-10 01:20:12">2020/04/10</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-28-implement-str/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="28. Implement strStr()">28. Implement strStr()</span>
+            <span class="post-date" title="2019-12-27 23:59:00">2019/12/27</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-283-move-zeros/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="283. Move Zeroes">283. Move Zeroes</span>
+            <span class="post-date" title="2019-09-02 23:59:00">2019/09/02</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-5-longest-palindromic-substring/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="5. Longest Palindromic Substring">5. Longest Palindromic Substring</span>
+            <span class="post-date" title="2019-11-23 23:59:00">2019/11/23</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-409-longest-palindrome/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="409. Longest Palindrome">409. Longest Palindrome</span>
+            <span class="post-date" title="2017-11-01 23:59:00">2017/11/01</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-516-longest-palindrome-subsequence/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="516. Longest Palindrome Subsequence">516. Longest Palindrome Subsequence</span>
+            <span class="post-date" title="2018-02-01 23:59:00">2018/02/01</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-455-assign-cookies/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="455. Assign Cookies 贪心算法">455. Assign Cookies 贪心算法</span>
+            <span class="post-date" title="2019-12-11 23:59:00">2019/12/11</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-50-pow/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="50. Pow(x, n)">50. Pow(x, n)</span>
+            <span class="post-date" title="2020-04-13 23:59:00">2020/04/13</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-438-find-all-anagrams-in-a-string/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="438. Find All Anagrams in a String">438. Find All Anagrams in a String</span>
+            <span class="post-date" title="2020-04-30 23:59:00">2020/04/30</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-560-subarray-sum-equals-k/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="560. Subarray Sum Equals K">560. Subarray Sum Equals K</span>
+            <span class="post-date" title="2020-04-13 23:59:00">2020/04/13</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-56-merge-intervals/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="56. Merge Intervals">56. Merge Intervals</span>
+            <span class="post-date" title="2019-09-02 23:59:00">2019/09/02</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-53-maximum-subarray/"
+           data-tag="Dynamic Programming,Data Structure"
+           data-author="" >
+            <span class="post-title" title="53. Maximum Subarray">53. Maximum Subarray</span>
+            <span class="post-date" title="2020-04-22 23:59:00">2020/04/22</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-55-jump-game/"
+           data-tag="Dynamic Programming"
+           data-author="" >
+            <span class="post-title" title="55. Jump Game">55. Jump Game</span>
+            <span class="post-date" title="2019-08-18 23:59:00">2019/08/18</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-64-min-path-sun/"
+           data-tag="Dynamic Programming"
+           data-author="" >
+            <span class="post-title" title="64. Minimum Path Sum">64. Minimum Path Sum</span>
+            <span class="post-date" title="2019-07-21 23:59:00">2019/07/21</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-67-add-binary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="67. Add Binary">67. Add Binary</span>
+            <span class="post-date" title="2020-05-12 23:59:00">2020/05/12</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-685-find-k-closest-elements/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="658. Find K Closest Elements">658. Find K Closest Elements</span>
+            <span class="post-date" title="2020-04-12 23:59:00">2020/04/12</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-74-search-a-2d-m/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="74. Search a 2D Matrix">74. Search a 2D Matrix</span>
+            <span class="post-date" title="2020-04-13 23:59:00">2020/04/13</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-674-longest-continues-increasing-subsequence/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="674. Longest Continuous Increasing Subsequence">674. Longest Continuous Increasing Subsequence</span>
+            <span class="post-date" title="2020-04-29 23:59:00">2020/04/29</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-62-unique-paths/"
+           data-tag="Dynamic Programming"
+           data-author="" >
+            <span class="post-title" title="62. Unique Paths">62. Unique Paths</span>
+            <span class="post-date" title="2020-04-16 23:59:00">2020/04/16</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-69-combination-sum/"
+           data-tag="DFS"
+           data-author="" >
+            <span class="post-title" title="69. Combination Sum">69. Combination Sum</span>
+            <span class="post-date" title="2019-09-18 23:59:00">2019/09/18</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-88-merge-sorted-array/"
+           data-tag="insertsort"
+           data-author="" >
+            <span class="post-title" title="88. Merge Sorted Array">88. Merge Sorted Array</span>
+            <span class="post-date" title="2019-04-26 23:59:00">2019/04/26</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-bfs-summary/"
+           data-tag="BFS,Graph Theory"
+           data-author="" >
+            <span class="post-title" title="Breadth First Search Summary">Breadth First Search Summary</span>
+            <span class="post-date" title="2019-09-18 23:59:00">2019/09/18</span>
+        </a>
+        
+        <a  class="Algorithm Lintcode "
+           href="/leetcode-767-reverse-array/"
+           data-tag="points"
+           data-author="" >
+            <span class="post-title" title="767. Reverse Array">767. Reverse Array</span>
+            <span class="post-date" title="2020-04-30 23:59:00">2020/04/30</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-dfs-summary/"
+           data-tag="Graph Theory,DFS"
+           data-author="" >
+            <span class="post-title" title="DFS Summary">DFS Summary</span>
+            <span class="post-date" title="2019-09-18 23:59:00">2019/09/18</span>
+        </a>
+        
+        <a  class="Algorithm Lintcode "
+           href="/leetcode-920-meeting-rooms/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="920. Meeting Rooms">920. Meeting Rooms</span>
+            <span class="post-date" title="2020-04-27 23:59:00">2020/04/27</span>
+        </a>
+        
+        <a  class="Algorithm Search "
+           href="/leetcode-binary-search-summary/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="Binary Search 总结">Binary Search 总结</span>
+            <span class="post-date" title="2020-04-13 23:59:00">2020/04/13</span>
+        </a>
+        
+        <a  class="其他 "
+           href="/keybord-shortcut-widows-keybord-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="windows 快捷键">windows 快捷键</span>
+            <span class="post-date" title="2019-04-21 23:59:00">2019/04/21</span>
+        </a>
+        
+        <a  class="深度学习 CNN "
+           href="/cnn-bilinear-convtranspose/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="双线性插值和转置卷积">双线性插值和转置卷积</span>
+            <span class="post-date" title="2018-03-11 23:59:00">2018/03/11</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-product-nums/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Product of Array Except Self">Product of Array Except Self</span>
+            <span class="post-date" title="2020-04-16 23:59:00">2020/04/16</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-leetcode-exercise/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="leetcode 刷题计划">leetcode 刷题计划</span>
+            <span class="post-date" title="2019-11-18 23:59:00">2019/11/18</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-35-search-insert-p/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="35. Search Insert Position">35. Search Insert Position</span>
+            <span class="post-date" title="2020-03-01 23:59:00">2020/03/01</span>
+        </a>
+        
+        <a  class="其他 "
+           href="/keybord-shortcut-chrome-ketbord-shutcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="chrome 快捷键">chrome 快捷键</span>
+            <span class="post-date" title="2015-04-21 23:59:00">2015/04/21</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-bn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Batch Normalization">Batch Normalization</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="深度学习 CNN "
+           href="/cnn-convolution/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="卷积">卷积</span>
+            <span class="post-date" title="2019-06-11 23:59:00">2019/06/11</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-eval/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="评估标准">评估标准</span>
+            <span class="post-date" title="2019-01-20 23:59:00">2019/01/20</span>
+        </a>
+        
+        <a  class="深度学习 CNN "
+           href="/cnn-cnn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Convolution Nerture Network">Convolution Nerture Network</span>
+            <span class="post-date" title="2019-01-18 23:59:00">2019/01/18</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-inception/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Inception">Inception</span>
+            <span class="post-date" title="2019-12-25 23:59:00">2019/12/25</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-kcf/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Kernel Correlation Filter">Kernel Correlation Filter</span>
+            <span class="post-date" title="2015-04-18 23:59:00">2015/04/18</span>
+        </a>
+        
+        <a  class="深度学习 CV "
+           href="/cnn-data-augmentation/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据增强 Data Augmentation">数据增强 Data Augmentation</span>
+            <span class="post-date" title="2019-12-22 23:59:00">2019/12/22</span>
+        </a>
+        
+        <a  class="深度学习 CV "
+           href="/cnn-bias-variance/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="偏差和方差（bias variance）过拟合 欠拟合（underfit overfit）">偏差和方差（bias variance）过拟合 欠拟合（underfit overfit）</span>
+            <span class="post-date" title="2019-02-01 23:59:00">2019/02/01</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-learning-rate/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="深度学习超参数">深度学习超参数</span>
+            <span class="post-date" title="2019-02-21 23:59:00">2019/02/21</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-linear-regression/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="线性回归 Linear Regression">线性回归 Linear Regression</span>
+            <span class="post-date" title="2019-12-06 01:20:12">2019/12/06</span>
+        </a>
+        
+        <a  class="深度学习 CNN "
+           href="/cnn-pooling/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="池化层">池化层</span>
+            <span class="post-date" title="2019-10-12 23:59:00">2019/10/12</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-nn-tricks/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="图像分割技巧总结">图像分割技巧总结</span>
+            <span class="post-date" title="2020-03-18 23:59:00">2020/03/18</span>
+        </a>
+        
+        <a  class="深度学习 Paper "
+           href="/cnn-mobilenet/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MobileNet">MobileNet</span>
+            <span class="post-date" title="2019-12-13 23:59:00">2019/12/13</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-optimization-algorithm/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="优化算法">优化算法</span>
+            <span class="post-date" title="2020-03-23 23:59:00">2020/03/23</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-loss-function/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Loss 损失函数">Loss 损失函数</span>
+            <span class="post-date" title="2019-03-05 23:59:00">2019/03/05</span>
+        </a>
+        
+        <a  class="深度学习 CNN "
+           href="/cnn-receptive-field/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="感受野">感受野</span>
+            <span class="post-date" title="2019-01-18 23:59:00">2019/01/18</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-rethink-relu-to/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Rethinking ReLU to Train Better CNNs">Rethinking ReLU to Train Better CNNs</span>
+            <span class="post-date" title="2015-02-01 23:59:00">2015/02/01</span>
+        </a>
+        
+        <a  class="深度学习 NLP "
+           href="/nlp-seq2seq/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Seq2Seq">Seq2Seq</span>
+            <span class="post-date" title="2020-02-18 23:59:00">2020/02/18</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/nlp-word-vector/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Efficient Estimation of Word Representations in Vector Space">Efficient Estimation of Word Representations in Vector Space</span>
+            <span class="post-date" title="2019-10-21 23:59:00">2019/10/21</span>
+        </a>
+        
+        <a  class="深度学习 Paper "
+           href="/cnn-xception/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Xception">Xception</span>
+            <span class="post-date" title="2019-02-14 23:59:00">2019/02/14</span>
+        </a>
+        
+        <a  class="深度学习 CNN "
+           href="/cnn-what-is-torchnn-53/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="torch.nn 到底是什么？">torch.nn 到底是什么？</span>
+            <span class="post-date" title="2019-12-28 23:59:00">2019/12/28</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-tracking-system/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tracking System">Tracking System</span>
+            <span class="post-date" title="2020-04-15 23:59:00">2020/04/15</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-yolov2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="YOLO9000 Better, Faster, Stronger">YOLO9000 Better, Faster, Stronger</span>
+            <span class="post-date" title="2020-03-18 23:59:00">2020/03/18</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/nlp-word2vector/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="词向量">词向量</span>
+            <span class="post-date" title="2020-02-18 23:59:00">2020/02/18</span>
+        </a>
+        
+        <a  class="深度学习 Paper "
+           href="/paper-resnet/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ResNet">ResNet</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        <a  class="深度学习 Paper "
+           href="/paper-hrnet/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="HRNet">HRNet</span>
+            <span class="post-date" title="2020-02-18 23:59:00">2020/02/18</span>
+        </a>
+        
+        <a  class="深度学习 Paper "
+           href="/paper-fcn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="FCN">FCN</span>
+            <span class="post-date" title="2019-12-24 23:59:00">2019/12/24</span>
+        </a>
+        
+        <a  class="Algorithm Leetcode "
+           href="/leetcode-dp-summary/"
+           data-tag="Dynamic Programming"
+           data-author="" >
+            <span class="post-title" title="Dynamic Programming Summary">Dynamic Programming Summary</span>
+            <span class="post-date" title="2019-04-18 23:59:00">2019/04/18</span>
+        </a>
+        
+        <a  class="深度学习 Paper "
+           href="/paper-vgg/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="VGG Convolutional Neural Networks">VGG Convolutional Neural Networks</span>
+            <span class="post-date" title="2020-01-15 23:59:00">2020/01/15</span>
+        </a>
+        
+        <a  class="Math "
+           href="/probability-theory-digital-characteristics/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数字特征 Digital Characteristics">数字特征 Digital Characteristics</span>
+            <span class="post-date" title="2015-04-18 23:59:00">2015/04/18</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/python-numpy-nn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Numpy 构建神经网络">Numpy 构建神经网络</span>
+            <span class="post-date" title="2018-04-06 01:20:12">2018/04/06</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/cnn-activate-function/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="激活函数">激活函数</span>
+            <span class="post-date" title="2019-02-02 23:59:00">2019/02/02</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/python-numpy/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Numpy">Numpy</span>
+            <span class="post-date" title="2018-01-06 01:20:12">2018/01/06</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/python-python-container-type/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 之结构化类型、可变性与高阶函数">Python 之结构化类型、可变性与高阶函数</span>
+            <span class="post-date" title="2019-06-20 23:59:00">2019/06/20</span>
+        </a>
+        
+        <a  class="深度学习 Paper "
+           href="/paper-unet/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="UNET">UNET</span>
+            <span class="post-date" title="2019-10-18 23:59:00">2019/10/18</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/python-python-application/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 之应用">Python 之应用</span>
+            <span class="post-date" title="2019-10-30 23:59:00">2019/10/30</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/python-python-note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 笔记">Python 笔记</span>
+            <span class="post-date" title="2015-02-16 01:20:12">2015/02/16</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/python-python-function/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 之函数、作用域与抽象">Python 之函数、作用域与抽象</span>
+            <span class="post-date" title="2019-07-23 23:59:00">2019/07/23</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/pytorch-pytorch-faq/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Pytorch 使用常见问题查询手册">Pytorch 使用常见问题查询手册</span>
+            <span class="post-date" title="2019-09-18 23:59:00">2019/09/18</span>
+        </a>
+        
+        <a  class="深度学习 "
+           href="/pytorch-pytorch-mutil-gpu/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Pytorch 多gpu并行训练">Pytorch 多gpu并行训练</span>
+            <span class="post-date" title="2019-11-14 23:59:00">2019/11/14</span>
+        </a>
+        
+        <a  class="深度学习 Paper "
+           href="/paper-deeplab/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Deeplab">Deeplab</span>
+            <span class="post-date" title="2019-12-23 23:59:00">2019/12/23</span>
+        </a>
+        
+        <a  class="Math "
+           href="/probability-theory-probability-theory/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="概率论">概率论</span>
+            <span class="post-date" title="2018-03-23 23:59:00">2018/03/23</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/python-python-logging/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python logging 使用小贴士">Python logging 使用小贴士</span>
+            <span class="post-date" title="2017-03-18 23:59:00">2017/03/18</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/python-python-object/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 之面向对象">Python 之面向对象</span>
+            <span class="post-date" title="2019-09-04 23:59:00">2019/09/04</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/python-python-distri/"
+           data-tag="distributed"
+           data-author="" >
+            <span class="post-title" title="Python 之分布式并行">Python 之分布式并行</span>
+            <span class="post-date" title="2019-09-10 23:59:00">2019/09/10</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-cnn-nn-tricks" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">图像分割技巧总结</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="深度学习">深度学习</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-05-13 11:31:26'>2020-03-18 23:59</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CNN-使用"><span class="toc-text"><a href="#CNN-&#x4F7F;&#x7528;" class="headerlink" title="CNN &#x4F7F;&#x7528;"></a>CNN &#x4F7F;&#x7528;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RNN-使用"><span class="toc-text"><a href="#RNN-&#x4F7F;&#x7528;" class="headerlink" title="RNN &#x4F7F;&#x7528;"></a>RNN &#x4F7F;&#x7528;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预处理"><span class="toc-text"><a href="#&#x9884;&#x5904;&#x7406;" class="headerlink" title="&#x9884;&#x5904;&#x7406;"></a>&#x9884;&#x5904;&#x7406;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据增强"><span class="toc-text"><a href="#&#x6570;&#x636E;&#x589E;&#x5F3A;" class="headerlink" title="&#x6570;&#x636E;&#x589E;&#x5F3A;"></a>&#x6570;&#x636E;&#x589E;&#x5F3A;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建模"><span class="toc-text"><a href="#&#x5EFA;&#x6A21;" class="headerlink" title="&#x5EFA;&#x6A21;"></a>&#x5EFA;&#x6A21;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#训练技巧"><span class="toc-text"><a href="#&#x8BAD;&#x7EC3;&#x6280;&#x5DE7;" class="headerlink" title="&#x8BAD;&#x7EC3;&#x6280;&#x5DE7;"></a>&#x8BAD;&#x7EC3;&#x6280;&#x5DE7;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#评估和交叉验证"><span class="toc-text"><a href="#&#x8BC4;&#x4F30;&#x548C;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;" class="headerlink" title="&#x8BC4;&#x4F30;&#x548C;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;"></a>&#x8BC4;&#x4F30;&#x548C;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集成方法"><span class="toc-text"><a href="#&#x96C6;&#x6210;&#x65B9;&#x6CD5;" class="headerlink" title="&#x96C6;&#x6210;&#x65B9;&#x6CD5;"></a>&#x96C6;&#x6210;&#x65B9;&#x6CD5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后处理"><span class="toc-text"><a href="#&#x540E;&#x5904;&#x7406;" class="headerlink" title="&#x540E;&#x5904;&#x7406;"></a>&#x540E;&#x5904;&#x7406;</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>从拿到一个问题决定用神经网络说起。一般而言，<br>首先选定你要采用的结构，如一对一，固定窗口，数据维度粒度，MLP，RNN 或者 CNN 等。<br>非线性选择，sigmoid，tanh，ReLU，或者一些变体，一般tanh比sigmoid效果好一点(简单说明下，两者很类似，tanh是rescaled的sigmoid，sigmoid输出都为正数，根据BP规则，某层的神经元的权重的梯度的符号和后层误差的一样，也就是说，如果后一层的误差为正，则这一层的权重全部都要降低，如果为负，则这一层梯度全部为负，权重全部增加，权重要么都增加，要么都减少，这明显是有问题的；tanh是以0为对称中心的，这会消除在权重更新时的系统偏差导致的偏向性。当然这是启发式的，并不是说tanh一定比sigmoid的好)，ReLU也是很好的选择，最大的好处是，当tanh和sigmoid饱和时都会有梯度消失的问题，ReLU就不会有这个问题，而且计算简单，当然它会产生dead neurons，下面会具体说。<br>Gradient Check，如果你觉得网络feedforward没什么问题，那么GC可以保证BP的过程没什么bug。值得提的是，如果feedforward有问题，但是得到的误差是差不多的，GC也会感觉是对的。大多情况GC可帮你找到很多问题！</p>
+<p>那如果GC失败，可能网络某些部分有问题，也有可能整个网络都有问题了！你也不知道哪出错了，那怎么办呢？构建一个可视化过程监控每一个环节，这可以让你清楚知道你的网络的每一地方是否有问题！！这里还有一个trick，先构建一个简单的任务(比如你做MNIST数字识别，你可以先识别0和1，如果成功可以再加入更多识别数字)；然后从简单到复杂逐步来检测你的model，看哪里有问题。举个例子吧，先用固定的data通过单层softmax看feedforward效果，然后BP效果，然后增加单层单个neuron unit看效果；增加一层多个；增加bias。。。。。直到构建出最终的样子，系统化的检测每一步！</p>
+<p>参数初始化也是重要滴！其主要考虑点在于你的激活函数的取值范围和梯度较大的范围！<br>隐层的bias一般初始化为0就可以；输出层的bias可以考虑用reverse activation of mean targets或者mean targets(很直观对不对) weights初始化一般较小的随机数，比如Uniform，Gaussion</p>
+<p>更放心一点，可视化每一层feedforward输出的取值范围，梯度范围，通过修改使其落入激活函数的中间区域范围（梯度类似线性）；如果是ReLU则保证不要输出大多为负数就好，可以给bias一点正直的噪声等。当然还有一点就是不能让神经元输出一样，原因很简单</p>
+<p>优化算法，一般用mini-batch SGD，绝对不要用full batch gradient(慢)。一般情况下，大数据集用2nd order batch method比如L-BFGS较好，但是会有大量额外计算2nd过程；小数据集，L-BFGS或共轭梯度较好。(Large-batch L-BFGS extends the reach of L-BFGSLe et al. ICML 2001)</p>
+<p>mini-batch好处主要有：可以用矩阵计算加速并行；引入的随机性可以避免困在局部最优值；并行化计算多个梯度等。在此基础上一些改进也是很有效的(因为SGD真的敏感)，比如Momentum，他的意图就是在原先的跟新基础上增加一点摩擦力，有点向加速度对速度的作用，如果多次更新梯度都往一个方向，说明这个方向是对的，这时候增加跟新的步长，突然有一个方向，只会较少影响原来的方向，因为可以较少的数据带来的误差。当你使用momentum时可以适当减小global learning rate</p>
+<p>学习率，跑过神经网络的都知道这个影响还蛮大。一般就是要么选用固定的lr，要么随着训练让lr逐步变小<br>方案一：当验证误差不再下降时，lr减小为原来的0.5<br>方案二：采用理论上可以保证收敛的减小比例，O(1/t)，t是迭代次数<br>方案三：最好用自适应的学习率，比如Adagrad(Duchi et al. 2010)等<br>简要说明一下，Adagrad非常适合数据出现频度不一样的模型，比如word2vec，你肯定希望出现非常少的词语权重更新非常大，让它们远离常规词，学习到向量空间中距离度量的意义，出现非常多的词(the，very，often)每次更新比较小。<br>去掉gradient clipping（一般默认有），训练过程中，找到最大的，使模型error不会爆掉的lr，然后用稍微小一点的lr训练<br>一般数据中的outliers会产生大的error，进而大的gradient，得到大的weight update，会使最优的lr比较难找<br>预处理好数据(去除outliers)，lr设定好一般无需clipping<br>如果error explode,那么加gradient clipping只是暂时缓解，原因还是数据有问题</p>
+<p>标准化(Normalization)<br>很多machine learning模型都需要，在此不多论述，神经网络假设inputs/outputs服从近似均值为0方差为1分布。主要为了公平对待每个特征；使优化过程变得平稳；消除量纲影响等<br>z-score; min-max; decimal scaling等<br>scale控制特征的重要性：大scale的output特征产生更大的error；大的scale的input的特征可以主导网络对此特征更敏感，产生大的update<br>一些特征本来取值范围很小需要格外注意，避免产生NaNs<br>就算没有标准化你的网络可以训练的话，那可能前几层也是做类似的事情，无形增加了网络的复杂程度<br>通常都是把所有inputs的特征独立地按同样的规则标准化，如果对任务有特殊需求，某些特征可以特别对待</p>
+<p>检查结果(Results Check)<br>有点类似于在模型中按一个监控系统（预处理，训练，预测过程中都要），这个步骤可以帮助你发现你的模型在哪里出了问题，最好可以找到可视化的方法，一目了然，比如图像方面就很直观了。<br>需要注意的是，你需要理解你设定的error的意义，就算训练过程error在不断减少，也需要来和真实的error比较，虽然training error减少了，但是可能还不够，真实世界中需要更小的error，说明模型学习的还不够<br>当在training过程中work后，再去看在validation集上的效果<br>再更新网络结构前，最好确保每一个环节都有“监控”，不要盲目做无用功</p>
+<p>预处理(Pre-Processing Data)<br>现实中同样的数据可以有不同的表达方式，比如移动的汽车，你从不同角度位置去观察，它做的都是同样的事情。你应该确保从南面观察和从西面观察的同样的数据，应该是相似的！<br>神经网络假设数据的分布空间是连续的<br>减少数据表示多样性带来的误差；间接减少了网络前几层做没必要的“等同”映射带来的复杂度</p>
+<p>正则化(Regularization)<br>增加Dropout，随机过程，噪声，data augumentation等。就算数据足够多，你认为不可能over-fitting，那么最好还是有正则，如dropout(0.99)<br>一方面缓解过拟合，另一方面引入的随机性，可以平缓训练过程，加速训练过程，处理outliers<br>Dropout可以看做ensemble，特征采样，相当于bagging很多子网络；训练过程中动态扩展拥有类似variation的输入数据集。（在单层网络中，类似折中Naiive bayes(所有特征权重独立)和logistic regression(所有特征之间有关系)；<br>一般对于越复杂的大规模网络，Dropout效果越好，是一个强regularizer！<br>最好的防止over-fitting就是有大量不重复数据</p>
+<p>Batch Size太大<br>太大的batch size会减gradient descend的随机性，对模型的精度产生负面影响。<br>如果可以容忍训练时间过长，最好开始使用尽量小的batch size(16,8,1)<br>大的batch size需要更多的epoch来达到较好的水平<br>原因1：帮助训练过程中跳出local minima<br>原因2：使训练进入较为平缓的local minima，提高泛化性</p>
+<p>最后一层的激活函数<br>限制输出的范围，一般不用任何激活<br>需要仔细考虑输入是什么，标准化之后的输出的取值范围，如果输出有正有负，你用ReLU，sigmoid明显不行；多分类任务一般用softmax(相当于对输出归一化为概率分布)<br>激活只是一个映射，理论上都可以<br>如果输出没有error明显也不行，那就没有gradient，模型也学不到什么<br>一般用tanh，产生一个问题就是梯度在-1或1附近非常小，神经元饱和学习很慢，容易产生梯度消息，模型产生更多接近-1或1的值</p>
+<p>Bad Gradient(Dead Neurons)<br>使用ReLU激活函数，由于其在小于零范围梯度为0，可能会影响模型性能，甚至模型不会在更新<br>当发现模型随着epoch进行，训练error不变化，可能所以神经元都“死”了。这时尝试更换激活函数如leaky ReLU，ELU，再看训练error变化<br>使用ReLU时需要给参数加一点噪声，打破完全对称避免0梯度，甚至给biases加噪声<br>相对而言对于sigmoid，因为其在0值附近最敏感，梯度最大，初始化全为0就可以啦<br>任何关于梯度的操作，比如clipping, rounding, max/min都可能产生类似的问题<br>ReLU相对Sigmoid优点：单侧抑制；宽阔的兴奋边界；稀疏激活性；解决梯度消失</p>
+<h2 id="CNN-使用"><a href="#CNN-使用" class="headerlink" title="CNN 使用"></a>CNN 使用</h2><p>神经网络是特征学习方法，其能力取决隐层，更多的连接意味着参数爆炸的增长，模型复杂直接导致很多问题。比如严重过拟合，过高的计算复杂度。<br>CNN其优越的性能十分值得使用，参数数量只和卷积核大小，数量有关，保证隐含节点数量（与卷积步长相关）的同时，大量降低了参数的数量！当然CNN更多用于图像，其他任务靠你自己抽象啦，多多尝试！<br>这里简单介绍一些CNN的trick<br>pooling或卷积尺寸和步长不一样，增加数据多样性<br>data augumentation，避免过拟合，提高泛化，加噪声扰动<br>weight regularization<br>SGD使用decay的训练方法<br>最后使用pooling（avgpooling）代替全连接，减少参数量<br>maxpooling代替avgpooling，避免avgpooling带来的模糊化效果<br>2个3x3代替一个5x5等，减少参数，增加非线性映射，使CNN对特征学习能力强<br>3x3,2x2窗口<br>预训练方法等<br>数据预处理后(PCA,ZCA)喂给模型<br>输出结果窗口ensemble<br>中间节点作为辅助输出节点，相当于模型融合，同时增加反向传播的梯度信号，提供了额外的正则化<br>1x1卷积，夸通道组织信息，提高网络表达，可对输出降维，低成本，性价比高，增加非线性映射，符合Hebbian原理<br>NIN增加网络对不同尺度的适应性，类似Multi-Scale思想<br>Factorization into small convolution，7x7用1x7和7x1代替，节约参数，增加非线性映射<br>BN减少Internal Covariance Shift问题，提高学习速度，减少过拟合，可以取消dropout，增大学习率，减轻正则，减少光学畸变的数据增强<br>模型遇到退化问题考虑shortcut结构，增加深度<br>等等</p>
+<h2 id="RNN-使用"><a href="#RNN-使用" class="headerlink" title="RNN 使用"></a>RNN 使用</h2><p>小的细节和其他很像，简单说两句个人感觉的其他方面吧，其实RNN也是shortcut结构<br>一般用LSTM结构防止BPTT的梯度消失，GRU拥有更少的参数，可以优先考虑<br>预处理细节，padding，序列长度设定，罕见词语处理等<br>一般语言模型的数据量一定要非常大<br>Gradient Clipping<br>Seq2Seq结构考虑attention，前提数据量大<br>序列模型考率性能优良的CNN+gate结构<br>一般生成模型可以参考GAN，VAE，产生随机变量<br>RL的框架结合<br>数据量少考虑简单的MLP<br>预测采用层级结构降低训练复杂度<br>设计采样方法，增加模型收敛速度<br>增加多级shortcut结构</p>
+<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p>这一部分包含众多常见的有效图像预处理方法，例如：<br>使用高斯差分方法进行斑点检测；<br>使用基于图像块的输入进行训练，以减少训练时间；<br>加载数据时，用 cudf 替换 Pandas；<br>确保所有图像保持相同的方向；<br>使用 OpenCV 对所有常规图像进行预处理；<br>采用自主学习并手动添加注释；<br>将所有图像调整成相同的分辨率，以便将相同的模型用于不同厚度的扫描等。</p>
+<h2 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h2><p>数据增强能够使网络具有更复杂的表征能力，从而减小网络性能在验证集和训练集以及最终测试集上的差距，让网络更好地学习迁移数据集上的数据分布。这部分介绍了一些常用的数据增强方法：<br>用 albumentations 包进行数据增强；<br>使用 90 度随机旋转；<br>使用水平、垂直翻转或这两个方向都做翻转；<br>尝试进行复杂的几何变换，包括弹性变换、透视变换、分段仿射变换、枕形失真；<br>应用随机 HSV；<br>使用损失较小的增强数据进行泛化，以防止有用图像信息丢失；<br>应用通道 shuffle；<br>根据类别频率进行数据扩充；<br>应用高斯噪声等。</p>
+<h2 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h2><p>网络架构<br>这一部分介绍了一些可用在图像分割上的常用网络框架，例如：<br>使用基于 U-net 的架构；<br>用 inception-ResNet v2 架构得到具备不同感受野的训练特征；<br>经过对抗训练的 Siamese 网络；<br>以密集（FC）层作为最后一层的 ResNet50、Xception、Inception ResNet v2 x 5；<br>使用全局最大池化层，无论输入尺寸如何，该层都将返回固定长度的输出；<br>使用堆叠的膨胀卷积；<br>VoxelNet；<br>用 concat 和 conv1x1 替换 LinkNet 跳跃连接中的加号；<br>广义平均池化；<br>用 3D 卷积网络在图像上滑动；<br>使用在 Imagenet 数据集上预训练的 ResNet152 作为特征提取器等。</p>
+<p>损失函数<br>损失函数常用来估计模型预测结果与真值之间的差距。选择合适的损失函数，对模型效果很重要。<br>这部分介绍了一系列损失函数和使用场景，例如：<br>dice 系数：能够很好地处理不平衡数据；<br>加权边界损失：减少预测分割与真值之间的距离；<br>MultiLabelSoftMarginLoss：基于最大熵优化多标签一对多损失的标准；<br>具备 logit 损失的平衡交叉熵（Balanced cross entropy，BCE）：以特定系数权衡正例和负例；<br>……</p>
+<h2 id="训练技巧"><a href="#训练技巧" class="headerlink" title="训练技巧"></a>训练技巧</h2><p>这部分介绍了常用的模型训练技巧，如：<br>尝试不同的学习率；<br>尝试不同批大小；<br>使用带有动量项的 SDG，并且手动设置学习率衰减；<br>数据增强过多会降低准确率；<br>使用裁剪后的图像训练，并在完整的图像上做预测；<br>在学习速率调整上使用 Keras 中的 ReduceLROnPlateau() 方法；<br>冻结除了最后一层以外所有的网络层，并使用 Stage1 中的 1000 张图片进行模型微调；<br>开发一个能使标签更加均匀的采样器；<br>使用类别感知采样（class aware sampling）等。</p>
+<h2 id="评估和交叉验证"><a href="#评估和交叉验证" class="headerlink" title="评估和交叉验证"></a>评估和交叉验证</h2><p>这部分介绍了 k 折交叉验证、对抗验证和权衡等方法，以及在调整模型最后一层时使用交叉验证方法以有效避免过拟合。</p>
+<h2 id="集成方法"><a href="#集成方法" class="headerlink" title="集成方法"></a>集成方法</h2><p>许多机器学习竞赛（包括 Kaggle）中最优秀的解决方案所采用的集成方法都建立在一个这样的假设上：将多个模型组合在一起通常可以产生更强大的模型。<br>这部分介绍了多种集成方法，如多数投票法、XGBoost、LightGBM、CatBoost 等方法，以及集成 ResNet50、InceptionV3 和 InceptionResNetV2 的方法。</p>
+<h2 id="后处理"><a href="#后处理" class="headerlink" title="后处理"></a>后处理</h2><p>这部分介绍了多种后处理方法：<br>测试时增强（Test Time Augmentation，TTA）：向模型多次展示经过不同随机变换的图像，取预测平均值；<br>均衡使用测试预测概率，而不是仅使用预测类；<br>将几何平均数应用于预测；<br>在推理过程中将图块重叠，使每个边缘像素至少覆盖 3 次，因为 UNET 在边缘区域范围的预测往往较差；<br>非极大抑制和边界框收缩；<br>分水岭后处理：在实例分割问题中分离对象。<br>最后需要注意的是，这份列表给出的某些技巧可能有一定的适用范围，具体能不能用还要视数据而定。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 请多多指教。 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>图像分割技巧总结</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="顺强">顺强</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-03-18, 23:59:00</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/cnn-nn-tricks/" title="图像分割技巧总结">http://shunqiang.ml/cnn-nn-tricks/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '0e7e17b540f27db2ec87',
+            clientSecret: '1a79337c0ec7b60276655b3dd52089802617a8de',
+            repo: 'shun-qiang.github.io',
+            owner: 'Shun-Qiang',
+            admin: ['Shun-Qiang'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2020 SHUNQIANG</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#BFS','#points','#LinkList','#stack','#Dynamic Programming','#Hard','#Graph Theory','#Binary Search','#quicksort','#Data Structure','#DFS','#insertsort','#distributed',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:true,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 572px;
+    }
+    .nav.fullscreen {
+        margin-left: -572px;
+    }
+    .nav-left {
+        width: 150px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
