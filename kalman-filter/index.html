@@ -1,0 +1,2226 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>Kalman Filter | 寻梦乌托邦</title>
+  <meta name="keywords" content>
+  <meta name="description" content="Kalman Filter | 寻梦乌托邦">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="正直 勇敢 追梦的人">
+<meta property="og:type" content="website">
+<meta property="og:title" content="分类">
+<meta property="og:url" content="http://shunqiang.tk/categories/index.html">
+<meta property="og:site_name" content="寻梦乌托邦">
+<meta property="og:description" content="正直 勇敢 追梦的人">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-12-14T07:06:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分类">
+<meta name="twitter:description" content="正直 勇敢 追梦的人">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0"></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.1.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value>
+  <input class="theme_blog_path" value>
+  <input id="theme_shortcut" value="true">
+  <input id="theme_highlight_on" value="true">
+  <input id="theme_code_copy" value="true">
+</div>
+
+
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>顺强</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/user/yelog/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/u/2307534817"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/u/ff56736de7cf"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/jaytp/activities"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:jaytp@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(129)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="Algorithm">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Algorithm
+                        <small>(44)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Leetcode">
+                                        
+                                        Leetcode
+                                        
+                                            <small>(38
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Lintcode">
+                                        
+                                        Lintcode
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Search">
+                                        
+                                        Search
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Serach">
+                                        
+                                        Serach
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Sort">
+                                        
+                                        Sort
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Math">
+                        
+                        Math
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="其他">
+                        
+                        其他
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据挖掘">
+                        
+                        数据挖掘
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据结构">
+                        
+                        数据结构
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="机器学习">
+                        
+                        机器学习
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="深度学习">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        深度学习
+                        <small>(45)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="深度学习<--->CNN">
+                                        
+                                        CNN
+                                        
+                                            <small>(6
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="深度学习<--->CV">
+                                        
+                                        CV
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="深度学习<--->NLP">
+                                        
+                                        NLP
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="深度学习<--->Paper">
+                                        
+                                        Paper
+                                        
+                                            <small>(8
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="编程框架">
+                        
+                        编程框架
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="编程语言">
+                        
+                        编程语言
+                        <small>(12)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="金融分析工具">
+                        
+                        金融分析工具
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="129">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>BFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Binary Search</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data Structure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>distributed</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Dynamic Programming</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Graph Theory</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hard</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>insertsort</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LinkList</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>points</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>quicksort</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>stack</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a id="top" class="All "
+           href="/about/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="关于我">关于我</span>
+            <span class="post-date" title="2022-11-14 23:33:20">2022/11/14</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/ai-auto-drive/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="自动驾驶">自动驾驶</span>
+            <span class="post-date" title="2021-01-21 23:59:00">2021/01/21</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/ai-quantization-knowledge/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="量化投资知识点集合">量化投资知识点集合</span>
+            <span class="post-date" title="2020-09-11 01:20:12">2020/09/11</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/ai-quantization-machine-learning/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="人工智能量化机器学习">人工智能量化机器学习</span>
+            <span class="post-date" title="2020-09-11 01:20:12">2020/09/11</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/ai-detect-3-stages/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Detection-3 Stages">Detection-3 Stages</span>
+            <span class="post-date" title="2020-05-20 23:59:00">2020/05/20</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 NLP "
+           href="/nlp-rnn-lstm-gru/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="RNN LSTM GRU">RNN LSTM GRU</span>
+            <span class="post-date" title="2020-05-18 23:59:00">2020/05/18</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/resume/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="简介">简介</span>
+            <span class="post-date" title="2020-05-12 23:59:00">2020/05/12</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-67-add-binary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="67. Add Binary">67. Add Binary</span>
+            <span class="post-date" title="2020-05-12 23:59:00">2020/05/12</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-114-flatten-binary-tree-to-linked-list/"
+           data-tag="points,LinkList,stack"
+           data-author="" >
+            <span class="post-title" title="114. Flatten Binary Tree to Linked List">114. Flatten Binary Tree to Linked List</span>
+            <span class="post-date" title="2020-04-30 23:59:00">2020/04/30</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-438-find-all-anagrams-in-a-string/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="438. Find All Anagrams in a String">438. Find All Anagrams in a String</span>
+            <span class="post-date" title="2020-04-30 23:59:00">2020/04/30</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Lintcode "
+           href="/leetcode-767-reverse-array/"
+           data-tag="points"
+           data-author="" >
+            <span class="post-title" title="767. Reverse Array">767. Reverse Array</span>
+            <span class="post-date" title="2020-04-30 23:59:00">2020/04/30</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-674-longest-continues-increasing-subsequence/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="674. Longest Continuous Increasing Subsequence">674. Longest Continuous Increasing Subsequence</span>
+            <span class="post-date" title="2020-04-29 23:59:00">2020/04/29</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Lintcode "
+           href="/leetcode-920-meeting-rooms/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="920. Meeting Rooms">920. Meeting Rooms</span>
+            <span class="post-date" title="2020-04-27 23:59:00">2020/04/27</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-27-remove-elment/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="27. Remove Element">27. Remove Element</span>
+            <span class="post-date" title="2020-04-25 23:59:00">2020/04/25</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-53-maximum-subarray/"
+           data-tag="Dynamic Programming,Data Structure"
+           data-author="" >
+            <span class="post-title" title="53. Maximum Subarray">53. Maximum Subarray</span>
+            <span class="post-date" title="2020-04-22 23:59:00">2020/04/22</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-62-unique-paths/"
+           data-tag="Dynamic Programming"
+           data-author="" >
+            <span class="post-title" title="62. Unique Paths">62. Unique Paths</span>
+            <span class="post-date" title="2020-04-16 23:59:00">2020/04/16</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-product-nums/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Product of Array Except Self">Product of Array Except Self</span>
+            <span class="post-date" title="2020-04-16 23:59:00">2020/04/16</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-tracking-system/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tracking System">Tracking System</span>
+            <span class="post-date" title="2020-04-15 23:59:00">2020/04/15</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/kalman-filter/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Kalman Filter">Kalman Filter</span>
+            <span class="post-date" title="2020-04-13 23:59:00">2020/04/13</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-102-binary-tree-level/"
+           data-tag="BFS"
+           data-author="" >
+            <span class="post-title" title="102. Binary Tree Level Order Traversal">102. Binary Tree Level Order Traversal</span>
+            <span class="post-date" title="2020-04-13 23:59:00">2020/04/13</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-50-pow/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="50. Pow(x, n)">50. Pow(x, n)</span>
+            <span class="post-date" title="2020-04-13 23:59:00">2020/04/13</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-560-subarray-sum-equals-k/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="560. Subarray Sum Equals K">560. Subarray Sum Equals K</span>
+            <span class="post-date" title="2020-04-13 23:59:00">2020/04/13</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-74-search-a-2d-m/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="74. Search a 2D Matrix">74. Search a 2D Matrix</span>
+            <span class="post-date" title="2020-04-13 23:59:00">2020/04/13</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Search "
+           href="/leetcode-binary-search-summary/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="Binary Search 总结">Binary Search 总结</span>
+            <span class="post-date" title="2020-04-13 23:59:00">2020/04/13</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-685-find-k-closest-elements/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="658. Find K Closest Elements">658. Find K Closest Elements</span>
+            <span class="post-date" title="2020-04-12 23:59:00">2020/04/12</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-215-kth-largest/"
+           data-tag="quicksort"
+           data-author="" >
+            <span class="post-title" title="215. Kth Largest Element in an Array">215. Kth Largest Element in an Array</span>
+            <span class="post-date" title="2020-04-10 01:20:12">2020/04/10</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 CV "
+           href="/lane-summary/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="车道线项目总结">车道线项目总结</span>
+            <span class="post-date" title="2020-03-23 23:59:00">2020/03/23</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-optimization-algorithm/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="优化算法">优化算法</span>
+            <span class="post-date" title="2020-03-23 23:59:00">2020/03/23</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-nn-tricks/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="图像分割技巧总结">图像分割技巧总结</span>
+            <span class="post-date" title="2020-03-18 23:59:00">2020/03/18</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-yolov2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="YOLO9000 Better, Faster, Stronger">YOLO9000 Better, Faster, Stronger</span>
+            <span class="post-date" title="2020-03-18 23:59:00">2020/03/18</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-35-search-insert-p/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="35. Search Insert Position">35. Search Insert Position</span>
+            <span class="post-date" title="2020-03-01 23:59:00">2020/03/01</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 "
+           href="/c-cpp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C++ 程序设计（面向对象进阶）">C++ 程序设计（面向对象进阶）</span>
+            <span class="post-date" title="2020-02-24 23:59:00">2020/02/24</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 NLP "
+           href="/nlp-seq2seq/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Seq2Seq">Seq2Seq</span>
+            <span class="post-date" title="2020-02-18 23:59:00">2020/02/18</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/nlp-word2vector/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="词向量">词向量</span>
+            <span class="post-date" title="2020-02-18 23:59:00">2020/02/18</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 Paper "
+           href="/paper-hrnet/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="HRNet">HRNet</span>
+            <span class="post-date" title="2020-02-18 23:59:00">2020/02/18</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/image-caption/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="image-caption">image-caption</span>
+            <span class="post-date" title="2020-02-03 23:59:00">2020/02/03</span>
+        </a>
+        
+        
+        <a  class="All 数据挖掘 "
+           href="/bigdata-elasticsearch/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Elasticsearch 中文指南背后的故事">Elasticsearch 中文指南背后的故事</span>
+            <span class="post-date" title="2020-01-21 23:59:00">2020/01/21</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 Paper "
+           href="/paper-vgg/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="VGG Convolutional Neural Networks">VGG Convolutional Neural Networks</span>
+            <span class="post-date" title="2020-01-15 23:59:00">2020/01/15</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-162-find-peak-el/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="162. Find Peak Element">162. Find Peak Element</span>
+            <span class="post-date" title="2020-01-13 23:59:00">2020/01/13</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 CNN "
+           href="/cnn-what-is-torchnn-53/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="torch.nn 到底是什么？">torch.nn 到底是什么？</span>
+            <span class="post-date" title="2019-12-28 23:59:00">2019/12/28</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-28-implement-str/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="28. Implement strStr()">28. Implement strStr()</span>
+            <span class="post-date" title="2019-12-27 23:59:00">2019/12/27</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-inception/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Inception">Inception</span>
+            <span class="post-date" title="2019-12-25 23:59:00">2019/12/25</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 Paper "
+           href="/paper-fcn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="FCN">FCN</span>
+            <span class="post-date" title="2019-12-24 23:59:00">2019/12/24</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 Paper "
+           href="/paper-deeplab/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Deeplab">Deeplab</span>
+            <span class="post-date" title="2019-12-23 23:59:00">2019/12/23</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 CV "
+           href="/cnn-data-augmentation/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据增强 Data Augmentation">数据增强 Data Augmentation</span>
+            <span class="post-date" title="2019-12-22 23:59:00">2019/12/22</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/baiduai/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="2020 百度 AI">2020 百度 AI</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-bn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Batch Normalization">Batch Normalization</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 Paper "
+           href="/paper-resnet/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ResNet">ResNet</span>
+            <span class="post-date" title="2019-12-18 23:59:00">2019/12/18</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 Paper "
+           href="/cnn-mobilenet/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MobileNet">MobileNet</span>
+            <span class="post-date" title="2019-12-13 23:59:00">2019/12/13</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-455-assign-cookies/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="455. Assign Cookies 贪心算法">455. Assign Cookies 贪心算法</span>
+            <span class="post-date" title="2019-12-11 23:59:00">2019/12/11</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-linear-regression/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="线性回归 Linear Regression">线性回归 Linear Regression</span>
+            <span class="post-date" title="2019-12-06 01:20:12">2019/12/06</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cv-task/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CV Tasks">CV Tasks</span>
+            <span class="post-date" title="2019-12-01 23:59:00">2019/12/01</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-5-longest-palindromic-substring/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="5. Longest Palindromic Substring">5. Longest Palindromic Substring</span>
+            <span class="post-date" title="2019-11-23 23:59:00">2019/11/23</span>
+        </a>
+        
+        
+        <a  class="All 其他 "
+           href="/english-eg-word/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="英语词根词缀">英语词根词缀</span>
+            <span class="post-date" title="2019-11-18 23:59:00">2019/11/18</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-104-leetcode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="104. Maximum Depth of Binary Tree">104. Maximum Depth of Binary Tree</span>
+            <span class="post-date" title="2019-11-18 23:59:00">2019/11/18</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-leetcode-exercise/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="leetcode 刷题计划">leetcode 刷题计划</span>
+            <span class="post-date" title="2019-11-18 23:59:00">2019/11/18</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/pytorch-pytorch-mutil-gpu/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Pytorch 多gpu并行训练">Pytorch 多gpu并行训练</span>
+            <span class="post-date" title="2019-11-14 23:59:00">2019/11/14</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 "
+           href="/python-python-application/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 之应用">Python 之应用</span>
+            <span class="post-date" title="2019-10-30 23:59:00">2019/10/30</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/nlp-word-vector/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Efficient Estimation of Word Representations in Vector Space">Efficient Estimation of Word Representations in Vector Space</span>
+            <span class="post-date" title="2019-10-21 23:59:00">2019/10/21</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 "
+           href="/python-pandas/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="pandas">pandas</span>
+            <span class="post-date" title="2019-10-21 23:59:00">2019/10/21</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 "
+           href="/python-exercise/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 练习">Python 练习</span>
+            <span class="post-date" title="2019-10-20 23:59:00">2019/10/20</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 "
+           href="/python-pclass/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python Class 知识总结">Python Class 知识总结</span>
+            <span class="post-date" title="2019-10-20 23:59:00">2019/10/20</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 Paper "
+           href="/paper-unet/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="UNET">UNET</span>
+            <span class="post-date" title="2019-10-18 23:59:00">2019/10/18</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-125-valid-palindrome/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="125. Valid Palindrome">125. Valid Palindrome</span>
+            <span class="post-date" title="2019-10-16 23:59:00">2019/10/16</span>
+        </a>
+        
+        
+        <a  class="All 数据结构 "
+           href="/data-structure-gragh/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="图">图</span>
+            <span class="post-date" title="2019-10-15 23:59:00">2019/10/15</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 CNN "
+           href="/cnn-pooling/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="池化层">池化层</span>
+            <span class="post-date" title="2019-10-12 23:59:00">2019/10/12</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-69-combination-sum/"
+           data-tag="DFS"
+           data-author="" >
+            <span class="post-title" title="69. Combination Sum">69. Combination Sum</span>
+            <span class="post-date" title="2019-09-18 23:59:00">2019/09/18</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-bfs-summary/"
+           data-tag="BFS,Graph Theory"
+           data-author="" >
+            <span class="post-title" title="Breadth First Search Summary">Breadth First Search Summary</span>
+            <span class="post-date" title="2019-09-18 23:59:00">2019/09/18</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-dfs-summary/"
+           data-tag="Graph Theory,DFS"
+           data-author="" >
+            <span class="post-title" title="DFS Summary">DFS Summary</span>
+            <span class="post-date" title="2019-09-18 23:59:00">2019/09/18</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/pytorch-pytorch-faq/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Pytorch 使用常见问题查询手册">Pytorch 使用常见问题查询手册</span>
+            <span class="post-date" title="2019-09-18 23:59:00">2019/09/18</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Lintcode "
+           href="/maximum-number/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="585. Maximum Number in Mountain Sequence">585. Maximum Number in Mountain Sequence</span>
+            <span class="post-date" title="2019-09-17 23:59:00">2019/09/17</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Serach "
+           href="/algorithm-search/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="查找">查找</span>
+            <span class="post-date" title="2019-09-14 23:59:00">2019/09/14</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 "
+           href="/python-python-distri/"
+           data-tag="distributed"
+           data-author="" >
+            <span class="post-title" title="Python 之分布式并行">Python 之分布式并行</span>
+            <span class="post-date" title="2019-09-10 23:59:00">2019/09/10</span>
+        </a>
+        
+        
+        <a  class="All 数据结构 "
+           href="/data-structure-linear-list/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="线性表">线性表</span>
+            <span class="post-date" title="2019-09-05 23:59:00">2019/09/05</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 "
+           href="/python-python-object/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 之面向对象">Python 之面向对象</span>
+            <span class="post-date" title="2019-09-04 23:59:00">2019/09/04</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Sort "
+           href="/algorithm-sort-algorithm/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="排序算法">排序算法</span>
+            <span class="post-date" title="2019-09-02 23:59:00">2019/09/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-283-move-zeros/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="283. Move Zeroes">283. Move Zeroes</span>
+            <span class="post-date" title="2019-09-02 23:59:00">2019/09/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-56-merge-intervals/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="56. Merge Intervals">56. Merge Intervals</span>
+            <span class="post-date" title="2019-09-02 23:59:00">2019/09/02</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-1406-stone-game-3/"
+           data-tag="Dynamic Programming,Hard"
+           data-author="" >
+            <span class="post-title" title="1406. Stone Game III">1406. Stone Game III</span>
+            <span class="post-date" title="2019-08-18 23:59:00">2019/08/18</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-198-house-rob/"
+           data-tag="Dynamic Programming"
+           data-author="" >
+            <span class="post-title" title="198. House Robber">198. House Robber</span>
+            <span class="post-date" title="2019-08-18 23:59:00">2019/08/18</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-322-coin-change/"
+           data-tag="Dynamic Programming"
+           data-author="" >
+            <span class="post-title" title="322. Coin Change">322. Coin Change</span>
+            <span class="post-date" title="2019-08-18 23:59:00">2019/08/18</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-55-jump-game/"
+           data-tag="Dynamic Programming"
+           data-author="" >
+            <span class="post-title" title="55. Jump Game">55. Jump Game</span>
+            <span class="post-date" title="2019-08-18 23:59:00">2019/08/18</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 "
+           href="/python-python-function/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 之函数、作用域与抽象">Python 之函数、作用域与抽象</span>
+            <span class="post-date" title="2019-07-23 23:59:00">2019/07/23</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-64-min-path-sun/"
+           data-tag="Dynamic Programming"
+           data-author="" >
+            <span class="post-title" title="64. Minimum Path Sum">64. Minimum Path Sum</span>
+            <span class="post-date" title="2019-07-21 23:59:00">2019/07/21</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/python-update-google-dns/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="自动更新谷歌 DNS">自动更新谷歌 DNS</span>
+            <span class="post-date" title="2019-06-22 23:59:00">2019/06/22</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 "
+           href="/python-python-container-type/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 之结构化类型、可变性与高阶函数">Python 之结构化类型、可变性与高阶函数</span>
+            <span class="post-date" title="2019-06-20 23:59:00">2019/06/20</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 CNN "
+           href="/cnn-convolution/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="卷积">卷积</span>
+            <span class="post-date" title="2019-06-11 23:59:00">2019/06/11</span>
+        </a>
+        
+        
+        <a  class="All Math "
+           href="/advanced-mathematics-matrix/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="矩阵">矩阵</span>
+            <span class="post-date" title="2019-05-11 23:59:00">2019/05/11</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-88-merge-sorted-array/"
+           data-tag="insertsort"
+           data-author="" >
+            <span class="post-title" title="88. Merge Sorted Array">88. Merge Sorted Array</span>
+            <span class="post-date" title="2019-04-26 23:59:00">2019/04/26</span>
+        </a>
+        
+        
+        <a  class="All 其他 "
+           href="/keybord-shortcut-widows-keybord-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="windows 快捷键">windows 快捷键</span>
+            <span class="post-date" title="2019-04-21 23:59:00">2019/04/21</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-200-number-of-islands/"
+           data-tag="BFS,Graph Theory"
+           data-author="" >
+            <span class="post-title" title="200. Number of Islands">200. Number of Islands</span>
+            <span class="post-date" title="2019-04-21 23:59:00">2019/04/21</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-dp-summary/"
+           data-tag="Dynamic Programming"
+           data-author="" >
+            <span class="post-title" title="Dynamic Programming Summary">Dynamic Programming Summary</span>
+            <span class="post-date" title="2019-04-18 23:59:00">2019/04/18</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-240-search-a-2D-m-2/"
+           data-tag="Binary Search"
+           data-author="" >
+            <span class="post-title" title="240. Search a 2D Matrix II">240. Search a 2D Matrix II</span>
+            <span class="post-date" title="2019-04-03 23:59:00">2019/04/03</span>
+        </a>
+        
+        
+        <a  class="All Math "
+           href="/advanced-mathematics-double-integral/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="二重积分">二重积分</span>
+            <span class="post-date" title="2019-04-01 23:59:00">2019/04/01</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-loss-function/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Loss 损失函数">Loss 损失函数</span>
+            <span class="post-date" title="2019-03-05 23:59:00">2019/03/05</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-learning-rate/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="深度学习超参数">深度学习超参数</span>
+            <span class="post-date" title="2019-02-21 23:59:00">2019/02/21</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/deep-learning-start/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="深度学习">深度学习</span>
+            <span class="post-date" title="2019-02-18 23:59:00">2019/02/18</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 Paper "
+           href="/cnn-xception/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Xception">Xception</span>
+            <span class="post-date" title="2019-02-14 23:59:00">2019/02/14</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-activate-function/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="激活函数">激活函数</span>
+            <span class="post-date" title="2019-02-02 23:59:00">2019/02/02</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 CV "
+           href="/cnn-bias-variance/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="偏差和方差（bias variance）过拟合 欠拟合（underfit overfit）">偏差和方差（bias variance）过拟合 欠拟合（underfit overfit）</span>
+            <span class="post-date" title="2019-02-01 23:59:00">2019/02/01</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-eval/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="评估标准">评估标准</span>
+            <span class="post-date" title="2019-01-20 23:59:00">2019/01/20</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 CNN "
+           href="/cnn-cnn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Convolution Nerture Network">Convolution Nerture Network</span>
+            <span class="post-date" title="2019-01-18 23:59:00">2019/01/18</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 CNN "
+           href="/cnn-receptive-field/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="感受野">感受野</span>
+            <span class="post-date" title="2019-01-18 23:59:00">2019/01/18</span>
+        </a>
+        
+        
+        <a  class="All 其他 "
+           href="/colab-offline/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Colab 笔记">Colab 笔记</span>
+            <span class="post-date" title="2018-10-28 23:59:00">2018/10/28</span>
+        </a>
+        
+        
+        <a  class="All Math "
+           href="/advanced-mathematics-calculus-english/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="微积分术语中英文对照">微积分术语中英文对照</span>
+            <span class="post-date" title="2018-09-21 23:59:00">2018/09/21</span>
+        </a>
+        
+        
+        <a  class="All 其他 "
+           href="/license/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="license">license</span>
+            <span class="post-date" title="2018-09-15 23:59:00">2018/09/15</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/python-numpy-nn/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Numpy 构建神经网络">Numpy 构建神经网络</span>
+            <span class="post-date" title="2018-04-06 01:20:12">2018/04/06</span>
+        </a>
+        
+        
+        <a  class="All Math "
+           href="/probability-theory-probability-theory/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="概率论">概率论</span>
+            <span class="post-date" title="2018-03-23 23:59:00">2018/03/23</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 CNN "
+           href="/cnn-bilinear-convtranspose/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="双线性插值和转置卷积">双线性插值和转置卷积</span>
+            <span class="post-date" title="2018-03-11 23:59:00">2018/03/11</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-516-longest-palindrome-subsequence/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="516. Longest Palindrome Subsequence">516. Longest Palindrome Subsequence</span>
+            <span class="post-date" title="2018-02-01 23:59:00">2018/02/01</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/python-numpy/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Numpy">Numpy</span>
+            <span class="post-date" title="2018-01-06 01:20:12">2018/01/06</span>
+        </a>
+        
+        
+        <a  class="All 其他 "
+           href="/markdown/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MARKDOWN 小知识">MARKDOWN 小知识</span>
+            <span class="post-date" title="2017-12-18 23:59:00">2017/12/18</span>
+        </a>
+        
+        
+        <a  class="All Algorithm Leetcode "
+           href="/leetcode-409-longest-palindrome/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="409. Longest Palindrome">409. Longest Palindrome</span>
+            <span class="post-date" title="2017-11-01 23:59:00">2017/11/01</span>
+        </a>
+        
+        
+        <a  class="All Math "
+           href="/advanced-mathematics-function/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="函数的凹凸性">函数的凹凸性</span>
+            <span class="post-date" title="2017-04-01 23:59:00">2017/04/01</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 "
+           href="/python-python-logging/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python logging 使用小贴士">Python logging 使用小贴士</span>
+            <span class="post-date" title="2017-03-18 23:59:00">2017/03/18</span>
+        </a>
+        
+        
+        <a  class="All Math "
+           href="/advanced-mathematics-proof/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="角度证明题">角度证明题</span>
+            <span class="post-date" title="2015-06-18 23:59:00">2015/06/18</span>
+        </a>
+        
+        
+        <a  class="All 其他 "
+           href="/widows-keybord-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="windows 快捷键">windows 快捷键</span>
+            <span class="post-date" title="2015-04-21 23:59:00">2015/04/21</span>
+        </a>
+        
+        
+        <a  class="All 其他 "
+           href="/keybord-shortcut-chrome-ketbord-shutcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="chrome 快捷键">chrome 快捷键</span>
+            <span class="post-date" title="2015-04-21 23:59:00">2015/04/21</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 "
+           href="/python-python-lambda/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="python lambda">python lambda</span>
+            <span class="post-date" title="2015-04-21 23:59:00">2015/04/21</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-kcf/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Kernel Correlation Filter">Kernel Correlation Filter</span>
+            <span class="post-date" title="2015-04-18 23:59:00">2015/04/18</span>
+        </a>
+        
+        
+        <a  class="All 数据结构 "
+           href="/data-structure-tree/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tree">Tree</span>
+            <span class="post-date" title="2015-04-18 23:59:00">2015/04/18</span>
+        </a>
+        
+        
+        <a  class="All Math "
+           href="/probability-theory-digital-characteristics/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数字特征 Digital Characteristics">数字特征 Digital Characteristics</span>
+            <span class="post-date" title="2015-04-18 23:59:00">2015/04/18</span>
+        </a>
+        
+        
+        <a  class="All 其他 "
+           href="/git-note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git 笔记">Git 笔记</span>
+            <span class="post-date" title="2015-02-16 01:20:12">2015/02/16</span>
+        </a>
+        
+        
+        <a  class="All 金融分析工具 "
+           href="/uqer/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="优矿">优矿</span>
+            <span class="post-date" title="2015-02-16 01:20:12">2015/02/16</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 "
+           href="/python-python-note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python 笔记">Python 笔记</span>
+            <span class="post-date" title="2015-02-16 01:20:12">2015/02/16</span>
+        </a>
+        
+        
+        <a  class="All 编程框架 "
+           href="/python-tensorflow/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tensorflow 笔记">Tensorflow 笔记</span>
+            <span class="post-date" title="2015-02-16 01:20:12">2015/02/16</span>
+        </a>
+        
+        
+        <a  class="All 其他 "
+           href="/hexo-troubleshoot/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo troubleshooting">Hexo troubleshooting</span>
+            <span class="post-date" title="2015-02-01 23:59:00">2015/02/01</span>
+        </a>
+        
+        
+        <a  class="All 深度学习 "
+           href="/cnn-rethink-relu-to/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Rethinking ReLU to Train Better CNNs">Rethinking ReLU to Train Better CNNs</span>
+            <span class="post-date" title="2015-02-01 23:59:00">2015/02/01</span>
+        </a>
+        
+        
+        <a  class="All 其他 "
+           href="/linux-note/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux 笔记">Linux 笔记</span>
+            <span class="post-date" title="2015-01-06 01:20:12">2015/01/06</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-kalman-filter" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Kalman Filter</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="深度学习">深度学习</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-06-19 16:21:44'>2020-04-13 23:59</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>引言：<br>一片绿油油的草地上有一条曲折的小径，通向一棵大树。一个要求被提出：从起点沿着小径走到树下。<br>“很简单。” A说，于是他丝毫不差地沿着小径走到了树下。<br>现在，难度被增加了：蒙上眼。<br>“也不难，我当过特种兵。” B说，于是他歪歪扭扭地走到了树 ………. 旁。“唉，好久不练，生疏了。” （只凭自己的预测能力）<br>“看我的，我有 DIY 的 GPS！” C说，于是他像个醉汉似地走到了树………. 旁。“唉，这个 GPS 软件没做好，漂移太大。” （只看 GPS 依靠外界有很大噪声的测量）<br>“我来试试。” 旁边一人拿过 GPS，蒙上眼，居然沿着小径走到了树下。（自己能预测 + 测量结果的反馈）<br>“这么厉害！你是什么人?”<br>“卡尔曼 ! ”<br>“卡尔曼？！你是卡尔曼？”众人大吃一惊。<br>“我是说这个 GPS 卡而慢。”</p>
+<p>卡尔曼滤波的核心，预测 + 测量反馈，记住这种思想。</p>
+<p>Kalman Filter is the optimal estimation algorithm.<br>Kalman Filter 应用历史案例:<br>    1) APOLLO 登月计划<br>    2) 飞船发动机内部测温<br>    卡尔曼滤波用于具有不确定状态的动态系统状态估计，该系统有两个状态：<br>    1）通过转移矩阵和控制矩阵得到的预测状态（其中包含可估计的误差）<br>    2）通过传感器测量得到的观察状态<br>Kalman Filter 假设两个状态都孚和高斯分布，并且当前状态只与上一时刻的状态有关，然后组合两个高斯分布，有数学证明将两个高斯分布相乘得到的还是高斯分布。<br>一维高斯分布乘积证明：<br><!-- $$
+设两个一维高斯分布： N\_1~(\mu\_1, \sigma\_1^2), N\_2~(\mu\_2, \sigma\_2^2) \\\
+N\_1 * N\_2 = C \frac {1}{\sqrt {2\pi \sigma}} e^{-\frac {(x - \mu)^2}{2\sigma^2}} \\\
+其中： C = \frac {1}{2\pi(\sigma\_1^2 + \sigma\_2^2)} e^{-\frac {(\mu\_1 - \mu\_2)^2}{2(\sigma\_1^2 + \sigma\_2^2)}} \\\
+\mu = 
+$$ --><br><img src="/img/product-gs-pdf1.png" alt><br><img src="/img/product-gs-pdf2.png" alt><br><img src="/img/product-gs-pdf3.png" alt></p>
+<p>推广到多维，新的高斯分布就是我们最优高斯分布。</p>
+<ul>
+<li>Methods of Tracking</li>
+</ul>
+<ol>
+<li>Match image similarity measurement<br>传统方法：抽象 search match（很慢但是稳定）</li>
+<li>predict<br>物理方法：不用图像信息，通过控制变量进行物理和数学推导，描述运动状态（快但是会产生形变：目标物体的堆积，如：被挡住了，下一时刻。忽略了图像本身信息）<br>鲁棒方式：两者结合<br>p: position<br>v: velocity</li>
+</ol>
+<ul>
+<li>Tips:<br>State can be any form (temperature,the amount of water ……)<br>Anything you want to predict<br>Elements in a state may have correlations<br>We use convariance matrix to describe</li>
+</ul>
+<p>$$State: \hat x_k = (p_k,v_k)$$<br>二维随机变量 (p, v) 的协方差矩阵 $S_k$：<br>$$S_k = \begin{bmatrix}<br>\sum_{pp} &amp; \sum_{pv} \\<br>\sum_{vp} &amp; \sum_{vv}<br>\end{bmatrix}$$</p>
+<p>$$State: \hat x_k = \begin{bmatrix}<br>p_k \\<br>v_k<br>\end{bmatrix}$$</p>
+<ol>
+<li>预测 Prediction:<br>$$State1 :<br>\begin{equation}\begin{split}<br>&amp;p_{k+1} = 1 * p_k + \Delta t * v_k \\<br>&amp;v_{k+1} = 0 + 1 * v_k<br>\end{split}\end{equation}<br>$$</li>
+</ol>
+<p>$$\hat x_{k+1} = F_{k+1} * \hat x_k$$</p>
+<p>$$转移系数： F_{k+1} =<br>\begin{bmatrix}<br>1 &amp; \Delta t \\<br>0 &amp; 1<br>\end{bmatrix}<br>$$</p>
+<p>$$<br>S_{k+1} = F_{k+1}S_kF^T_{k+1}<br>$$</p>
+<p>$$State2 :<br>\begin{equation}\begin{split}<br>&amp;p_{k+1} = 1 * p_k + \Delta t * v_k + \frac {1}{2}a\Delta t^2\\<br>&amp;v_{k+1} = 0 + 1 * v_k + a\Delta t<br>\end{split}\end{equation}<br>$$</p>
+<p>Add some KNOWN external factors:<br>control matrix:<br>$$<br>B_k =<br>\begin{bmatrix}<br>\frac {1}{2}\Delta t^2 \\<br>\Delta t<br>\end{bmatrix}<br>$$</p>
+<p>$a$ is control vector $u_k$<br>$$<br>\hat x_{k+1} = F_{k+1} * \hat x_k + B_k u_k<br>$$</p>
+<p>Add some UNKOWN external factors:<br>$$<br>S_{k+1} = F_{k+1}S_kF^T_{k+1} + Q_{k+1}<br>$$</p>
+<p>Sensors we have can measure different elements in a state, which can refine our predictions by transforming via a matrix 𝑯 which maps our estimation to the refined results.<br>$$<br>S_{\mu_{k+1}} = H_{k+1}S_{k+1}H^T_{k+1}<br>x_{\mu} = H_{k+1} \hat x_k+1<br>$$</p>
+<p>Now we’re dealing with multi-variables/matrix<br>$$<br>\begin{equation}\begin{split}<br>&amp;N_0~(\mu_0, \sigma_0^2), N_1~(\mu_1, \sigma_1^2) \\<br>&amp;K = \sum_0(\sum_0 + \sum_1)^{-1} \\<br>&amp;\mu’ = \mu_0 + K(\mu_1 - \mu_0) \\<br>&amp;\sum’ = \sum_0 - K\sum_0<br>\end{split}\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}\begin{split}<br>&amp;(\mu_0, \sum_0) = (H_{k+1}\hat x_{k+1}, H_{k+1}S_{k+1}H^T_{k+1}) \\<br>&amp;(\mu_1, \sum_1) = (z_{k+1}, R_{k+1})<br>\end{split}\end{equation}<br>$$</p>
+<ul>
+<li><p>Gain 卡尔曼增益<br>$$<br>K = H_{k+1}S_{k+1}H^T_{k+1}(H_{k+1}S_{k+1}H^T_{k+1}+R_{k+1})^{-1} \\<br>K’ = S_{k+1}H^T_{k+1}(H_{k+1}S_{k+1}H^T_{k+1}+R_{k+1})^{-1}<br>$$</p>
+</li>
+<li><p>Correction 修正<br>$$<br>\begin{equation}\begin{split}<br>&amp;\hat x’_{k+1} = \hat x_{k+1} + K’(z_{k+1} - H_{k+1} \hat x_{k+1}) \\<br>&amp;\hat S’_{k+1} = S_{k+1} - K’H_{k+1}S_{k+1}<br>\end{split}\end{equation}<br>$$</p>
+</li>
+</ul>
+<p>人脸识别跟踪效果：</p>
+<video width="480" height="320" controls><br><source src="/video/bbox.mp4"><br></video>
+
+<pre><code class="python">import cv2
+import numpy as np
+import math
+
+
+class KalmanFilter(object):
+    def __init__(self, video_helper):
+        self.dynamParamsSize = 6
+        self.measureParamsSize = 4
+        self.kalman = cv2.KalmanFilter(dynamParams=self.dynamParamsSize,
+                                       measureParams=self.measureParamsSize)
+        self.first_run = True
+        # 每一帧的时间段
+        dT = 1. / video_helper.frame_fps
+        # 转移矩阵
+        self.kalman.transitionMatrix = np.array([[1, 0, dT, 0, 0, 0],
+                                                 [0, 1, 0, dT, 0, 0],
+                                                 [0, 0, 1, 0, 0, 0],
+                                                 [0, 0, 0, 1, 0, 0],
+                                                 [0, 0, 0, 0, 1, 0],
+                                                 [0, 0, 0, 0, 0, 1]], np.float32)
+
+        self.kalman.measurementMatrix = np.array([[1, 0, 0, 0, 0, 0],
+                                                  [0, 1, 0, 0, 0, 0],
+                                                  [0, 0, 0, 0, 1, 0],
+                                                  [0, 0, 0, 0, 0, 1]], np.float32)
+
+        self.kalman.processNoiseCov = np.array([[0.01, 0, 0, 0, 0, 0],
+                                                [0, 0.01, 0, 0, 0, 0],
+                                                [0, 0, 5.0, 0, 0, 0],
+                                                [0, 0, 0, 5.0, 0, 0],
+                                                [0, 0, 0, 0, 0.01, 0],
+                                                [0, 0, 0, 0, 0, 0.01]], np.float32)
+
+        self.kalman.measurementNoiseCov = np.array([[0.1, 0, 0, 0],
+                                                    [0, 0.1, 0, 0],
+                                                    [0, 0, 0.1, 0],
+                                                    [0, 0, 0, 0.1]], np.float32)
+
+    # kalman 预测 bbox
+    def get_predicted_bbox(self):
+        predicted_res = self.kalman.predict().T[0]
+
+        # 修正 kalman 格式
+        predicted_bbox = self.get_bbox_from_kalman_form(predicted_res)
+        return predicted_bbox
+
+    # 对预测结果修正
+    def correct(self, bbox):
+        # bbox：left, right, top, bottom
+        w = bbox[1] - bbox[0] + 1
+        h = bbox[3] - bbox[2] + 1
+        xc = int(bbox[0] + w / 2.)
+        yc = int(bbox[2] + h / 2.)
+        measurement = np.array([[xc, yc, w, h]], dtype=np.float32).T
+
+        if self.first_run:
+            self.kalman.statePre = np.array([measurement[0], measurement[1], [0], [0], measurement[2], measurement[3]],
+                                            dtype=np.float32)
+            self.first_run = False
+
+        corrected_res = self.kalman.correct(measurement).T[0]
+        corrected_bbox = self.get_bbox_from_kalman_form(corrected_res)
+        return corrected_bbox
+
+    def get_bbox_from_kalman_form(self, kalman_form):
+        xc = kalman_form[0]
+        yc = kalman_form[1]
+        w = kalman_form[4]
+        h = kalman_form[5]
+        l = math.ceil(xc - w / 2.)
+        r = math.ceil(xc + w / 2.)
+        t = math.ceil(yc - h / 2.)
+        b = math.ceil(yc + h / 2.)
+        return [l, r, t, b]
+</code></pre>
+<p>SLAM 或 Simultaneous localization and mapping</p>
+<ul>
+<li>TIPS:<br>联合概率 P(X = a, Y = b): 满足 X = a 且 Y = b 的面积<br>边缘概率 P(X = a): 不考虑 Y 的取值，所有满足 X = a 的区域的总面积<br>条件概率 P(X = a | Y = b): 在 Y = b 的前提下，满足 X = a 的面积（比例）</li>
+</ul>
+<p>为什么不用每一帧的图像进行跟踪处理<br>从以下两方面分析：</p>
+<ol>
+<li>运算效率</li>
+<li>稳定性</li>
+</ol>
+<p>参考链接：<br><a href="https://www.youtube.com/watch?v=9J-E_RfLyiY&amp;vl=zh-Hans" target="_blank" rel="noopener">为什么使用卡尔曼滤波器？</a><br><a href="http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/" target="_blank" rel="noopener">http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/</a><br><a href="https://cybernetist.com/2019/01/13/apollo-kalman-filter-and-go/" target="_blank" rel="noopener">Apollo program, Kalman Filter and Go</a><br><a href="http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/" target="_blank" rel="noopener">How a Kalman filter works, in pictures</a><br><a href="https://zhuanlan.zhihu.com/p/39912633" target="_blank" rel="noopener">图说卡尔曼滤波，一份通俗易懂的教程</a><br><a href="https://blog.csdn.net/u013102281/article/details/59109566" target="_blank" rel="noopener">kalman 详细推导</a><br><a href="https://github.com/opencv/opencv/blob/master/modules/video/src/kalman.cpp" target="_blank" rel="noopener">kalman opencv cpp 源码</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
